@@ -1,5 +1,5 @@
 class SiteSweeper < ActionController::Caching::Sweeper
-  observe Post
+  observe Post, Comment
 
   def after_save(record)
     self.class::sweep

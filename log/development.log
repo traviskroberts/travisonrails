@@ -8091,3 +8091,313 @@ Rendering main/tagged
   [4;36;1mComment Load (0.000557)[0m   [0;1mSELECT * FROM `comments` WHERE (`comments`.post_id = 40 AND (approved=1)) [0m
 Rendered shared/_notice_div (0.00002)
 Completed in 0.04917 (20 reqs/sec) | Rendering: 0.01356 (27%) | DB: 0.00782 (15%) | 200 OK [http://localhost/posts/tagged-with/rails]
+
+
+Processing MainController#tagged (for 127.0.0.1 at 2008-06-08 12:30:14) [GET]
+  Session ID: BAh7CDoMY3NyZl9pZCIlOTYwZjQyZTM2NTZhNmVkYWY1NmQwYWVkMWZmZTdk
+ZjY6CXVzZXJpBiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6
+OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--d9627e908868fdb25748413d4484c9183e51202d
+  Parameters: {"name"=>"rails", "action"=>"tagged", "controller"=>"main"}
+  [4;36;1mSQL (0.000165)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mPost Load (0.000795)[0m   [0mSELECT * FROM `posts` WHERE (date LIKE '2008%') ORDER BY date DESC[0m
+  [4;36;1mPost Load (0.002939)[0m   [0;1mSELECT * FROM `posts` WHERE (date NOT LIKE '2008%') ORDER BY date DESC[0m
+  [4;35;1mPost Columns (0.000231)[0m   [0mSHOW FIELDS FROM `posts`[0m
+  [4;36;1mTag Columns (0.000298)[0m   [0;1mSHOW FIELDS FROM `tags`[0m
+  [4;35;1mTag Load (0.000819)[0m   [0mSELECT * FROM `tags` WHERE (`tags`.`name` = 'rails') LIMIT 1[0m
+  [4;36;1mJoin Table Columns (0.000252)[0m   [0;1mSHOW FIELDS FROM `posts_tags`[0m
+  [4;35;1mPost Load (0.002339)[0m   [0mSELECT * FROM `posts` INNER JOIN `posts_tags` ON `posts`.id = `posts_tags`.post_id WHERE (`posts_tags`.tag_id = 4 ) ORDER BY date DESC LIMIT 0, 5[0m
+Rendering template within layouts/application
+Rendering main/tagged
+  [4;36;1mComment Load (0.000512)[0m   [0;1mSELECT * FROM `comments` WHERE (`comments`.post_id = 40 AND (approved=1)) [0m
+Rendered shared/_notice_div (0.00002)
+Completed in 0.06034 (16 reqs/sec) | Rendering: 0.02079 (34%) | DB: 0.00835 (13%) | 200 OK [http://localhost/posts/tagged-with/rails]
+
+
+Processing Base#index (for 127.0.0.1 at 2008-06-08 12:35:58) [GET]
+  Session ID: BAh7CDoMY3NyZl9pZCIlOTYwZjQyZTM2NTZhNmVkYWY1NmQwYWVkMWZmZTdk
+ZjYiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA6CXVzZXJpBg==--594ee972e8e36601bb1e335bda74c9e8ca162ae7
+  Parameters: {}
+
+
+SyntaxError (/Users/travis/apacheprojects/travisonrails_v2/app/helpers/application_helper.rb:14: parse error, unexpected '<'
+			  output << <%= link_to tag.name, tagged_path(:name => strip_chars(tag.name), :page => nil)
+			             ^
+/Users/travis/apacheprojects/travisonrails_v2/app/helpers/application_helper.rb:14: parse error, unexpected ',', expecting kEND
+			  output << <%= link_to tag.name, tagged_path(:name => strip_chars(tag.name), :page => nil)
+			                                                                             ^):
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:215:in `load_without_new_constant_marking'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:215:in `load_file'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:354:in `new_constants_in'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:214:in `load_file'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:95:in `require_or_load'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:60:in `depend_on'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:456:in `require_dependency'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/helpers.rb:193:in `default_helper_module!'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/helpers.rb:208:in `inherited'
+    /app/controllers/application.rb:4
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:215:in `load_file'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:354:in `new_constants_in'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:214:in `load_file'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:95:in `require_or_load'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:60:in `depend_on'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:456:in `require_dependency'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:18:in `define_dispatcher_callbacks'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/callbacks.rb:177:in `evaluate_method'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/callbacks.rb:161:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/callbacks.rb:90:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/callbacks.rb:90:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/callbacks.rb:272:in `run_callbacks'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:128:in `reload_application'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/callbacks.rb:173:in `evaluate_method'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/callbacks.rb:161:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/callbacks.rb:90:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/callbacks.rb:90:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/callbacks.rb:272:in `run_callbacks'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:106:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:502:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:354:in `new_constants_in'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:502:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:509:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:354:in `new_constants_in'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:509:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/commands/server.rb:39
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    ./script/server:3
+
+Rendering /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing MainController#tagged (for 127.0.0.1 at 2008-06-08 12:36:18) [GET]
+  Session ID: BAh7CDoMY3NyZl9pZCIlOTYwZjQyZTM2NTZhNmVkYWY1NmQwYWVkMWZmZTdk
+ZjY6CXVzZXJpBiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6
+OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--d9627e908868fdb25748413d4484c9183e51202d
+  Parameters: {"name"=>"rails", "action"=>"tagged", "controller"=>"main"}
+  [4;35;1mPost Load (0.000680)[0m   [0mSELECT * FROM `posts` WHERE (date LIKE '2008%') ORDER BY date DESC[0m
+  [4;36;1mPost Load (0.002955)[0m   [0;1mSELECT * FROM `posts` WHERE (date NOT LIKE '2008%') ORDER BY date DESC[0m
+  [4;35;1mPost Columns (0.000252)[0m   [0mSHOW FIELDS FROM `posts`[0m
+  [4;36;1mTag Columns (0.000301)[0m   [0;1mSHOW FIELDS FROM `tags`[0m
+  [4;35;1mTag Load (0.000328)[0m   [0mSELECT * FROM `tags` WHERE (`tags`.`name` = 'rails') LIMIT 1[0m
+  [4;36;1mJoin Table Columns (0.000208)[0m   [0;1mSHOW FIELDS FROM `posts_tags`[0m
+  [4;35;1mPost Load (0.002729)[0m   [0mSELECT * FROM `posts` INNER JOIN `posts_tags` ON `posts`.id = `posts_tags`.post_id WHERE (`posts_tags`.tag_id = 4 ) ORDER BY date DESC LIMIT 0, 5[0m
+Rendering template within layouts/application
+Rendering main/tagged
+  [4;36;1mComment Load (0.000627)[0m   [0;1mSELECT * FROM `comments` WHERE (`comments`.post_id = 40 AND (approved=1)) [0m
+
+
+ActionView::TemplateError (undefined local variable or method `post' for #<ActionView::Base:0x219eedc>) on line #34 of main/tagged.html.erb:
+31: 			</p>
+32: 		
+33: 			<%= post.content %>
+34: 			<%= show_tags(post) %>
+35: 			<br />
+36: 			
+37: 		<%- end -%>
+
+    app/helpers/application_helper.rb:11:in `show_tags'
+    app/views/main/tagged.html.erb:34:in `_run_erb_47app47views47main47tagged46html46erb'
+    app/views/main/tagged.html.erb:5:in `_run_erb_47app47views47main47tagged46html46erb'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/base.rb:338:in `execute'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/template_handlers/compilable.rb:29:in `render'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/template.rb:35:in `render'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/template.rb:22:in `render_template'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/base.rb:245:in `render_file'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1108:in `render_for_file'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:841:in `render_with_no_layout'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/layout.rb:251:in `render_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:51:in `render'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:51:in `render'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1157:in `default_render'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1163:in `perform_action_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:580:in `call_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:573:in `perform_action_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.1.0/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.1.0/lib/active_record/query_cache.rb:8:in `cache'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `process_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:569:in `process_without_session_management_support'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/session_management.rb:130:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:389:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:502:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:354:in `new_constants_in'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:502:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:509:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:354:in `new_constants_in'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:509:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/commands/server.rb:39
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing MainController#tagged (for 127.0.0.1 at 2008-06-08 12:36:34) [GET]
+  Session ID: BAh7CDoMY3NyZl9pZCIlOTYwZjQyZTM2NTZhNmVkYWY1NmQwYWVkMWZmZTdk
+ZjYiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA6CXVzZXJpBg==--594ee972e8e36601bb1e335bda74c9e8ca162ae7
+  Parameters: {"name"=>"rails", "action"=>"tagged", "controller"=>"main"}
+  [4;35;1mPost Load (0.000655)[0m   [0mSELECT * FROM `posts` WHERE (date LIKE '2008%') ORDER BY date DESC[0m
+  [4;36;1mPost Load (0.003050)[0m   [0;1mSELECT * FROM `posts` WHERE (date NOT LIKE '2008%') ORDER BY date DESC[0m
+  [4;35;1mPost Columns (0.000240)[0m   [0mSHOW FIELDS FROM `posts`[0m
+  [4;36;1mTag Columns (0.000291)[0m   [0;1mSHOW FIELDS FROM `tags`[0m
+  [4;35;1mTag Load (0.000294)[0m   [0mSELECT * FROM `tags` WHERE (`tags`.`name` = 'rails') LIMIT 1[0m
+  [4;36;1mJoin Table Columns (0.000222)[0m   [0;1mSHOW FIELDS FROM `posts_tags`[0m
+  [4;35;1mPost Load (0.002264)[0m   [0mSELECT * FROM `posts` INNER JOIN `posts_tags` ON `posts`.id = `posts_tags`.post_id WHERE (`posts_tags`.tag_id = 4 ) ORDER BY date DESC LIMIT 0, 5[0m
+Rendering template within layouts/application
+Rendering main/tagged
+  [4;36;1mComment Load (0.000609)[0m   [0;1mSELECT * FROM `comments` WHERE (`comments`.post_id = 40 AND (approved=1)) [0m
+  [4;35;1mJoin Table Columns (0.000276)[0m   [0mSHOW FIELDS FROM `posts_tags`[0m
+  [4;36;1mTag Load (0.000495)[0m   [0;1mSELECT * FROM `tags` INNER JOIN `posts_tags` ON `tags`.id = `posts_tags`.tag_id WHERE (`posts_tags`.post_id = 40 ) [0m
+Rendered shared/_notice_div (0.00003)
+Completed in 0.05202 (19 reqs/sec) | Rendering: 0.01595 (30%) | DB: 0.00902 (17%) | 200 OK [http://localhost/posts/tagged-with/rails]
+
+
+Processing MainController#index (for 127.0.0.1 at 2008-06-08 12:37:39) [GET]
+  Session ID: BAh7CDoMY3NyZl9pZCIlOTYwZjQyZTM2NTZhNmVkYWY1NmQwYWVkMWZmZTdk
+ZjY6CXVzZXJpBiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6
+OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--d9627e908868fdb25748413d4484c9183e51202d
+  Parameters: {"action"=>"index", "controller"=>"main", "page"=>"1"}
+  [4;35;1mPost Load (0.000667)[0m   [0mSELECT * FROM `posts` WHERE (date LIKE '2008%') ORDER BY date DESC[0m
+  [4;36;1mPost Load (0.002917)[0m   [0;1mSELECT * FROM `posts` WHERE (date NOT LIKE '2008%') ORDER BY date DESC[0m
+  [4;35;1mPost Columns (0.000283)[0m   [0mSHOW FIELDS FROM `posts`[0m
+  [4;36;1mPost Load (0.001038)[0m   [0;1mSELECT * FROM `posts` ORDER BY date DESC LIMIT 0, 5[0m
+  [4;35;1mSQL (0.000213)[0m   [0mSELECT count(*) AS count_all FROM `posts` [0m
+Rendering template within layouts/application
+Rendering main/index
+  [4;36;1mComment Load (0.000506)[0m   [0;1mSELECT * FROM `comments` WHERE (`comments`.post_id = 40 AND (approved=1)) [0m
+  [4;35;1mJoin Table Columns (0.000270)[0m   [0mSHOW FIELDS FROM `posts_tags`[0m
+  [4;36;1mTag Load (0.000486)[0m   [0;1mSELECT * FROM `tags` INNER JOIN `posts_tags` ON `tags`.id = `posts_tags`.tag_id WHERE (`posts_tags`.post_id = 40 ) [0m
+  [4;35;1mTag Columns (0.000208)[0m   [0mSHOW FIELDS FROM `tags`[0m
+  [4;36;1mComment Load (0.000432)[0m   [0;1mSELECT * FROM `comments` WHERE (`comments`.post_id = 39 AND (approved=1)) [0m
+  [4;35;1mJoin Table Columns (0.000207)[0m   [0mSHOW FIELDS FROM `posts_tags`[0m
+  [4;36;1mTag Load (0.000507)[0m   [0;1mSELECT * FROM `tags` INNER JOIN `posts_tags` ON `tags`.id = `posts_tags`.tag_id WHERE (`posts_tags`.post_id = 39 ) [0m
+  [4;35;1mComment Load (0.000505)[0m   [0mSELECT * FROM `comments` WHERE (`comments`.post_id = 38 AND (approved=1)) [0m
+  [4;36;1mJoin Table Columns (0.000224)[0m   [0;1mSHOW FIELDS FROM `posts_tags`[0m
+  [4;35;1mTag Load (0.000316)[0m   [0mSELECT * FROM `tags` INNER JOIN `posts_tags` ON `tags`.id = `posts_tags`.tag_id WHERE (`posts_tags`.post_id = 38 ) [0m
+  [4;36;1mComment Load (0.000433)[0m   [0;1mSELECT * FROM `comments` WHERE (`comments`.post_id = 37 AND (approved=1)) [0m
+  [4;35;1mJoin Table Columns (0.000203)[0m   [0mSHOW FIELDS FROM `posts_tags`[0m
+  [4;36;1mTag Load (0.000285)[0m   [0;1mSELECT * FROM `tags` INNER JOIN `posts_tags` ON `tags`.id = `posts_tags`.tag_id WHERE (`posts_tags`.post_id = 37 ) [0m
+  [4;35;1mComment Load (0.000312)[0m   [0mSELECT * FROM `comments` WHERE (`comments`.post_id = 36 AND (approved=1)) [0m
+  [4;36;1mJoin Table Columns (0.000201)[0m   [0;1mSHOW FIELDS FROM `posts_tags`[0m
+  [4;35;1mTag Load (0.000297)[0m   [0mSELECT * FROM `tags` INNER JOIN `posts_tags` ON `tags`.id = `posts_tags`.tag_id WHERE (`posts_tags`.post_id = 36 ) [0m
+Rendered shared/_notice_div (0.00002)
+Completed in 0.05991 (16 reqs/sec) | Rendering: 0.02742 (45%) | DB: 0.01051 (17%) | 200 OK [http://localhost/index/1]
+
+
+Processing MainController#by_date (for 127.0.0.1 at 2008-06-08 12:37:46) [GET]
+  Session ID: BAh7CDoMY3NyZl9pZCIlOTYwZjQyZTM2NTZhNmVkYWY1NmQwYWVkMWZmZTdk
+ZjYiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA6CXVzZXJpBg==--594ee972e8e36601bb1e335bda74c9e8ca162ae7
+  Parameters: {"action"=>"by_date", "controller"=>"main", "year"=>"2007"}
+  [4;36;1mPost Load (0.000751)[0m   [0;1mSELECT * FROM `posts` WHERE (date LIKE '2008%') ORDER BY date DESC[0m
+  [4;35;1mPost Load (0.003271)[0m   [0mSELECT * FROM `posts` WHERE (date NOT LIKE '2008%') ORDER BY date DESC[0m
+  [4;36;1mPost Columns (0.000259)[0m   [0;1mSHOW FIELDS FROM `posts`[0m
+  [4;35;1mPost Load (0.000889)[0m   [0mSELECT * FROM `posts` WHERE (date LIKE '2007%') LIMIT 0, 5[0m
+  [4;36;1mSQL (0.000243)[0m   [0;1mSELECT count(*) AS count_all FROM `posts` WHERE (date LIKE '2007%') [0m
+Rendering template within layouts/application
+Rendering main/by_date
+  [4;35;1mComment Load (0.000470)[0m   [0mSELECT * FROM `comments` WHERE (`comments`.post_id = 33 AND (approved=1)) [0m
+  [4;36;1mJoin Table Columns (0.000351)[0m   [0;1mSHOW FIELDS FROM `posts_tags`[0m
+  [4;35;1mTag Load (0.000369)[0m   [0mSELECT * FROM `tags` INNER JOIN `posts_tags` ON `tags`.id = `posts_tags`.tag_id WHERE (`posts_tags`.post_id = 33 ) [0m
+  [4;36;1mComment Load (0.000321)[0m   [0;1mSELECT * FROM `comments` WHERE (`comments`.post_id = 34 AND (approved=1)) [0m
+  [4;35;1mJoin Table Columns (0.000202)[0m   [0mSHOW FIELDS FROM `posts_tags`[0m
+  [4;36;1mTag Load (0.000275)[0m   [0;1mSELECT * FROM `tags` INNER JOIN `posts_tags` ON `tags`.id = `posts_tags`.tag_id WHERE (`posts_tags`.post_id = 34 ) [0m
+  [4;35;1mComment Load (0.000269)[0m   [0mSELECT * FROM `comments` WHERE (`comments`.post_id = 35 AND (approved=1)) [0m
+  [4;36;1mJoin Table Columns (0.000202)[0m   [0;1mSHOW FIELDS FROM `posts_tags`[0m
+  [4;35;1mTag Load (0.000318)[0m   [0mSELECT * FROM `tags` INNER JOIN `posts_tags` ON `tags`.id = `posts_tags`.tag_id WHERE (`posts_tags`.post_id = 35 ) [0m
+  [4;36;1mComment Load (0.000336)[0m   [0;1mSELECT * FROM `comments` WHERE (`comments`.post_id = 36 AND (approved=1)) [0m
+  [4;35;1mJoin Table Columns (0.000212)[0m   [0mSHOW FIELDS FROM `posts_tags`[0m
+  [4;36;1mTag Load (0.000281)[0m   [0;1mSELECT * FROM `tags` INNER JOIN `posts_tags` ON `tags`.id = `posts_tags`.tag_id WHERE (`posts_tags`.post_id = 36 ) [0m
+  [4;35;1mComment Load (0.000472)[0m   [0mSELECT * FROM `comments` WHERE (`comments`.post_id = 37 AND (approved=1)) [0m
+  [4;36;1mJoin Table Columns (0.000210)[0m   [0;1mSHOW FIELDS FROM `posts_tags`[0m
+  [4;35;1mTag Load (0.000297)[0m   [0mSELECT * FROM `tags` INNER JOIN `posts_tags` ON `tags`.id = `posts_tags`.tag_id WHERE (`posts_tags`.post_id = 37 ) [0m
+Rendered shared/_notice_div (0.00002)
+Completed in 0.05742 (17 reqs/sec) | Rendering: 0.02502 (43%) | DB: 0.01000 (17%) | 200 OK [http://localhost/2007]
+
+
+Processing MainController#by_date (for 127.0.0.1 at 2008-06-08 12:38:02) [GET]
+  Session ID: BAh7CDoMY3NyZl9pZCIlOTYwZjQyZTM2NTZhNmVkYWY1NmQwYWVkMWZmZTdk
+ZjY6CXVzZXJpBiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6
+OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--d9627e908868fdb25748413d4484c9183e51202d
+  Parameters: {"action"=>"by_date", "controller"=>"main", "year"=>"2007", "page"=>"2"}
+  [4;36;1mPost Load (0.000668)[0m   [0;1mSELECT * FROM `posts` WHERE (date LIKE '2008%') ORDER BY date DESC[0m
+  [4;35;1mPost Load (0.003055)[0m   [0mSELECT * FROM `posts` WHERE (date NOT LIKE '2008%') ORDER BY date DESC[0m
+  [4;36;1mPost Columns (0.000248)[0m   [0;1mSHOW FIELDS FROM `posts`[0m
+  [4;35;1mPost Load (0.000734)[0m   [0mSELECT * FROM `posts` WHERE (date LIKE '2007%') LIMIT 5, 5[0m
+Rendering template within layouts/application
+Rendering main/by_date
+  [4;36;1mComment Load (0.000508)[0m   [0;1mSELECT * FROM `comments` WHERE (`comments`.post_id = 38 AND (approved=1)) [0m
+  [4;35;1mJoin Table Columns (0.000294)[0m   [0mSHOW FIELDS FROM `posts_tags`[0m
+  [4;36;1mTag Load (0.000379)[0m   [0;1mSELECT * FROM `tags` INNER JOIN `posts_tags` ON `tags`.id = `posts_tags`.tag_id WHERE (`posts_tags`.post_id = 38 ) [0m
+  [4;35;1mComment Load (0.000367)[0m   [0mSELECT * FROM `comments` WHERE (`comments`.post_id = 39 AND (approved=1)) [0m
+  [4;36;1mJoin Table Columns (0.000211)[0m   [0;1mSHOW FIELDS FROM `posts_tags`[0m
+  [4;35;1mTag Load (0.093122)[0m   [0mSELECT * FROM `tags` INNER JOIN `posts_tags` ON `tags`.id = `posts_tags`.tag_id WHERE (`posts_tags`.post_id = 39 ) [0m
+  [4;36;1mComment Load (0.000567)[0m   [0;1mSELECT * FROM `comments` WHERE (`comments`.post_id = 40 AND (approved=1)) [0m
+  [4;35;1mJoin Table Columns (0.000223)[0m   [0mSHOW FIELDS FROM `posts_tags`[0m
+  [4;36;1mTag Load (0.000465)[0m   [0;1mSELECT * FROM `tags` INNER JOIN `posts_tags` ON `tags`.id = `posts_tags`.tag_id WHERE (`posts_tags`.post_id = 40 ) [0m
+  [4;35;1mTag Columns (0.000242)[0m   [0mSHOW FIELDS FROM `tags`[0m
+Rendered shared/_notice_div (0.00002)
+Completed in 0.14620 (6 reqs/sec) | Rendering: 0.02183 (14%) | DB: 0.10108 (69%) | 200 OK [http://localhost/2007?page=2]
+
+
+Processing MainController#tagged (for 127.0.0.1 at 2008-06-08 12:38:07) [GET]
+  Session ID: BAh7CDoMY3NyZl9pZCIlOTYwZjQyZTM2NTZhNmVkYWY1NmQwYWVkMWZmZTdk
+ZjYiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA6CXVzZXJpBg==--594ee972e8e36601bb1e335bda74c9e8ca162ae7
+  Parameters: {"name"=>"get", "action"=>"tagged", "controller"=>"main"}
+  [4;36;1mPost Load (0.000661)[0m   [0;1mSELECT * FROM `posts` WHERE (date LIKE '2008%') ORDER BY date DESC[0m
+  [4;35;1mPost Load (0.002781)[0m   [0mSELECT * FROM `posts` WHERE (date NOT LIKE '2008%') ORDER BY date DESC[0m
+  [4;36;1mPost Columns (0.000244)[0m   [0;1mSHOW FIELDS FROM `posts`[0m
+  [4;35;1mTag Columns (0.000284)[0m   [0mSHOW FIELDS FROM `tags`[0m
+  [4;36;1mTag Load (0.000293)[0m   [0;1mSELECT * FROM `tags` WHERE (`tags`.`name` = 'get') LIMIT 1[0m
+  [4;35;1mJoin Table Columns (0.000204)[0m   [0mSHOW FIELDS FROM `posts_tags`[0m
+  [4;36;1mPost Load (0.002363)[0m   [0;1mSELECT * FROM `posts` INNER JOIN `posts_tags` ON `posts`.id = `posts_tags`.post_id WHERE (`posts_tags`.tag_id = 1 ) ORDER BY date DESC LIMIT 0, 5[0m
+Rendering template within layouts/application
+Rendering main/tagged
+  [4;35;1mComment Load (0.000593)[0m   [0mSELECT * FROM `comments` WHERE (`comments`.post_id = 40 AND (approved=1)) [0m
+  [4;36;1mJoin Table Columns (0.000286)[0m   [0;1mSHOW FIELDS FROM `posts_tags`[0m
+  [4;35;1mTag Load (0.000542)[0m   [0mSELECT * FROM `tags` INNER JOIN `posts_tags` ON `tags`.id = `posts_tags`.tag_id WHERE (`posts_tags`.post_id = 40 ) [0m
+Rendered shared/_notice_div (0.00002)
+Completed in 0.05010 (19 reqs/sec) | Rendering: 0.01429 (28%) | DB: 0.00825 (16%) | 200 OK [http://localhost/posts/tagged-with/get]

@@ -29,15 +29,7 @@
 		</p>
 		
 		<%= post.content %>
-		
-		<%- unless post.tags.empty? -%>
-			<p class="tagged">
-				Tagged:
-				<%- post.tags.each do |tag| -%>
-					<%= link_to tag.name, tagged_path(:name => strip_chars(tag.name), :page => nil) %><%= ', ' unless post.tags.last==tag %>
-				<%- end -%>
-			</p>
-		<%- end -%>
+		<%= show_tags(post) %>
 		<br />
 	<%- end -%>
 	<%= will_paginate @posts %>

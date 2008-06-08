@@ -19,6 +19,7 @@
 		</p>
 		
 		<%= post.content %>
+		<%= show_tags(post) %>
 		<br />
 	<%- end -%>
 	
@@ -30,7 +31,9 @@
 	
 	<p class="posted">Published on <%= @post.date.to_formatted_s(:long) %></p>
 	
-	<%= @post.content %><br />
+	<%= @post.content %>
+	<%= show_tags(@post) %>
+	<br />
 	
 	<%- @post.approved_comments.each do |comment| -%>
 		<div class="comment">

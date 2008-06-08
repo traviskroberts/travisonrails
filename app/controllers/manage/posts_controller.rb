@@ -2,6 +2,8 @@ class Manage::PostsController < ApplicationController
   layout 'admin'
 	before_filter :check_authentication, :except => [:login, :signin]
 	
+	cache_sweeper :site_sweeper, :only => [:create, :update, :destroy, :delete_comment, :approve]
+	
 	def signin
     user_params = params[:user]
     session[:user] = User.authenticate(user_params[:username],user_params[:password]).id
