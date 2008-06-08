@@ -28,13 +28,13 @@
 <%- elsif @post -%>
 	<%- @page_title = "Travis on Rails &raquo; #{@post.title}" -%>
 	<h1><%= @post.title %></h1>
-	
+
 	<p class="posted">Published on <%= @post.date.to_formatted_s(:long) %></p>
-	
+
 	<%= @post.content %>
 	<%= show_tags(@post) %>
 	<br />
-	
+
 	<%- @post.approved_comments.each do |comment| -%>
 		<div class="comment">
 			<%- date_len = (comment.date - @post.date) -%>

@@ -64,6 +64,17 @@ class MainController < ApplicationController
     flash.now[:error] = 'There was an error getting the posts for that tag.'
 	end
 	
+	def feed
+	  @posts = Post.find(:all, :order => 'date DESC', :limit => 10)
+  rescue Exception => ex
+    logger.warn("ERROR: " + ex.message)
+    flash.now[:error] = 'There was an error generating the feed.'
+	end
+	
+	def old_rss
+	  redirect_to(post_rss_path(:rss))
+	end
+	
 	private
 	def build_date(date)
 		if date.month.to_s.length == 1

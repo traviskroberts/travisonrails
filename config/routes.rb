@@ -7,13 +7,13 @@ ActionController::Routing::Routes.draw do |map|
   map.with_options :controller => 'main' do |m|
     m.home '', :action => 'index'
     m.paged_home 'index/:page', :action => 'index', :requirements => {:page => /\d+/}, :page => nil
+    m.old_rss 'feed/posts', :action => 'old_rss'
+    m.post_rss 'feed/posts.:format', :action => 'feed'
     m.date ':year/:month/:day/:title', :action => "by_date",
 						:requirements => { :year => /(19|20)\d\d/, :month => /[01]?\d/, :day => /[0-3]?\d/},
 						:day => nil, :month => nil, :title => nil
 		m.tagged 'posts/tagged-with/:name/:page', :action => 'tagged', :requirements => {:page => /\d+/}, :page => nil
   end
-  
-  map.post_rss 'feed/posts.:format', :controller => 'feed', :action => 'posts'
   
   map.connect 'manage', :controller => 'manage/posts', :action => 'login'
   
