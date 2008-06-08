@@ -1,0 +1,46 @@
+<%- if @posts and @posts.length > 0 -%>
+	<%- for post in @posts -%>
+		
+		<h1><%= link_to post.title,
+						date_path(:year => post.date.year,
+									:month => post.date.strftime("%m"),
+									:day => post.date.strftime("%d"),
+									:title => post.title.gsub(' ', '-')),
+						:class => "title_link" %></h1>
+		
+		<%- date_len = (Time.now.to_date - post.date) -%>
+		<p class="posted">Published 
+			<%- if date_len == 0 -%>
+				today
+			<%- elsif date_len == 1 -%>
+				<%= date_len %> day ago
+			<%- elsif date_len > 1 and date_len < 30 -%>
+				<%= date_len %> days ago
+			<%- elsif date_len > 30 -%>
+				on <%= post.date.to_formatted_s(:long) %>
+			<%- end -%>
+			&nbsp;|&nbsp;
+			<%= link_to pluralize(post.approved_comments.length, 'comment'), 
+						date_path(:year => post.date.year,
+									:month => post.date.strftime("%m"),
+									:day => post.date.strftime("%d"),
+									:title => post.title.gsub(' ', '-') ),
+						:class => "comments" %>
+		</p>
+		
+		<%= post.content %>
+		
+		<%- unless post.tags.empty? -%>
+			<p class="tagged">
+				Tagged:
+				<%- post.tags.each do |tag| -%>
+					<%= link_to tag.name, tagged_path(:name => strip_chars(tag.name), :page => nil) %><%= ', ' unless post.tags.last==tag %>
+				<%- end -%>
+			</p>
+		<%- end -%>
+		<br />
+	<%- end -%>
+	<%= will_paginate @posts %>
+<%- else -%>
+	<p>There are no posts at this time.</p>
+<%- end -%>

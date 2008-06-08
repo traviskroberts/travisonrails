@@ -1,0 +1,19 @@
+<div id="comment_form">
+	<p id="comment_error" style="display:none;"></p>
+	<% form_remote_tag(:url => {:action => 'comment'}) do %>
+		<p>
+			<label for="comment_name">Name:</label><br />
+			<%= text_field 'comment', 'name', :class => 'styled_input' %>
+		</p>
+		<p>
+			<label for="comment_content">Comment:</label><br />
+			<%= text_area 'comment', 'content', :size => '35x4', :class => 'styled_input' %>
+		</p>
+		<p>
+			<%= hidden_field 'comment', 'date', :value => Date.today %>
+			<%= hidden_field 'comment', 'post_id', :value => id %>
+			<%= submit_tag 'Submit' %>
+		</p>
+	<% end %>
+</div><!-- comment_form -->
+<p id="comment_notice" style="display:none;"></p>

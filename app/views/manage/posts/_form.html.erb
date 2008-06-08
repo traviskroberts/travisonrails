@@ -1,0 +1,19 @@
+<p>
+	<label for="post_title">Title</label><br />
+	<%= text_field :post, 'title', :class => 'styled_admin_input' %>
+</p>
+
+<p>
+	<lable for="post_date">Date</lable><br />
+	<%= date_select :post, 'date', :order => [:month, :day, :year] %>
+</p>
+
+<p>
+	<label for="post_content">Content</label><br />
+	<%= text_area :post, 'content', :class => 'styled_admin_input' %>
+</p>
+
+<p>
+	<label for="tags">Tags</label><br />
+	<%= text_field_tag :tags, (@tags.nil? or @tags.empty?) ? params[:tags] : @tags.join(", "), :class => 'styled_admin_input' %>
+</p>

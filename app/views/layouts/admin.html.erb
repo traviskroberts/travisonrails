@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+	
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>Travis On Rails - Admin</title>
+	
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="author" content="Travis Roberts" />
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	
+	<%= javascript_include_tag :defaults %>
+	<%= stylesheet_link_tag "travisonrails" %>
+</head>
+
+<body>
+
+<div id="wrapper">
+
+	<div id="header">
+		<%= link_to '', paged_home_path(:page => 1), :class => 'logolink' %>
+	</div>
+	
+	<div id="content">
+		<%= render :partial => 'shared/notice_div' %>
+		<% if session[:user] -%>
+			<div id="admin_nav">
+				<div class="padding">
+					<p><%= link_to 'Manage Posts', admin_posts_path %></p>
+					<p><%= link_to 'Logout', logout_admin_posts_path %></p>
+				</div><!-- padding -->
+			</div><!-- admin_nav -->
+		<% end -%>
+		
+		<div id="admin_main">
+			<div class="padding">
+				<%= yield %>
+			</div><!-- padding -->
+		</div><!-- admin_main -->
+		
+		<div class="clear"></div>
+		
+	</div><!-- content -->
+</div><!-- wrapper -->
+</body>
+</html>

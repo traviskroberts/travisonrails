@@ -1,0 +1,12 @@
+<h1>Login</h1>
+<% form_tag(signin_admin_posts_path) do %>
+	<p>
+		<label for="username">Username:</label><br>
+		<%= text_field "user", "username" %>
+	</p>
+	<p>
+		<label for="password">Password:</label><br>
+		<%= password_field "user", "password" %>
+	</p>
+	<p><%= submit_tag "Login" %></p>
+<% end %>
