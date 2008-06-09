@@ -1,7 +1,7 @@
 class MainController < ApplicationController
   before_filter :build_archive_links
   
-  caches_page :index, :tagged
+  caches_page :index, :tagged, :by_date, :feed
   
   def index
 		@posts = Post.paginate(:all, :page => params[:page], :per_page => 5, :order => 'date DESC')
@@ -26,7 +26,7 @@ class MainController < ApplicationController
 			title = params[:title].gsub("-", " ")
 			@post = Post.find(:first, :conditions => "title LIKE '#{title}' AND date LIKE '#{@query}'", :order => 'date DESC')
 		else
-			@posts = Post.paginate(:all, :page => params[:page], :per_page => 5, :conditions => "date LIKE '#{@query}'")
+			@posts = Post.find(:all, :conditions => "date LIKE '#{@query}'", :order => 'date')
 		end
 	rescue Exception => ex
 	  logger.warn("ERROR: " + ex.message)
