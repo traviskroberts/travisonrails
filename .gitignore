@@ -1,0 +1,5 @@
+# Ignore the log files
+log/development.log
+# 
+# Ignore the tmp files (if any)
+tmp/*
