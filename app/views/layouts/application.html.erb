@@ -51,11 +51,12 @@
 				<div class="padding">
 					<h2>Links</h2>
 					<ul>
-						<li><a href="http://www.plexusweb.com">Plexus Web Creations</a></li>
-						<li><a href="http://www.rubyonrails.com">Ruby on Rails</a></li>
-						<li><a href="http://www.respectalumni.com">Respect Alumni</a></li>
-						<li><a href="http://codemonky.com">Veader</a></li>
-						<li><a href="http://www.trumpetperformance.com">Colin, the trumpet master</a></li>
+						<li><%= link_to 'Twitter', 'http://twitter.com/travisroberts' %></li>
+						<li><%= link_to 'Flickr', 'http://flickr.com/photos/traviskroberts', :popup => true %></li>
+						<li><%= link_to 'Plexus Web Creations', 'http://plexusweb.com', :popup => true %></li>
+						<li><%= link_to 'Respect Alumni', 'http://respectalumni.com', :popup => true %></li>
+						<li><%= link_to 'Veader', 'http://codemonky.com', :popup => true %></li>
+						<li><%= link_to 'Colin, the trumpet master', 'http://trumpetperformance.com', :popup => true %></li>
 					</ul>
 					
 					<br />
@@ -69,6 +70,12 @@
 					<%- end -%>
 						<li><%= link_to "Current Posts", paged_home_path(:page => 1) %></li>
 					</ul>
+					
+					<br />
+					
+					<h2>Tags</h2>
+					<%= render :partial => 'shared/tag_cloud' %>
+					
 				</div><!-- padding -->
 			</div><!-- nav -->
 		</div><!-- rightCol -->

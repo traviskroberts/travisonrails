@@ -191,6 +191,14 @@ textarea.styled_admin_input { height:400px; width:100%; }
 
 .adsense { width:728px; margin:0 auto 10px auto; }
 
+/*styles for tag cloud*/
+.level_one { font-size:12px; }
+.level_two { font-size:14px; }
+.level_three { font-size:16px; }
+.level_four { font-size:18px; }
+.level_five { font-size:20px; }
+.level_six { font-size:22px; }
+
 /*ruby/rails code coloring*/
 .keyword { color:#FFE000; } /*yellow*/
 .string { color:#00D42D; } /*green*/

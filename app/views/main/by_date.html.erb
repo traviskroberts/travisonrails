@@ -32,16 +32,7 @@
 		<div class="comment">
 			<%- date_len = (comment.date - @post.date) -%>
 			<p class="author">
-				<strong><%=h comment.name %></strong> said 
-				<%- if date_len == 0 -%>
-					less than a day later:
-				<%- elsif date_len == 1 -%>
-					<%= date_len %> day later:
-				<%- elsif date_len < 30 -%>
-					<%= date_len %> days later:
-				<%- else -%>
-					on <%=h comment.date.to_formatted_s(:long) %>:
-				<%- end -%>
+				<strong><%=h comment.name %></strong> said on <%=h comment.date.to_formatted_s(:long) %>:
 			</p>
 			<p><%=h comment.content %></p>
 		</div><!-- comment -->

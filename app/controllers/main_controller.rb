@@ -1,5 +1,5 @@
 class MainController < ApplicationController
-  before_filter :build_archive_links
+  before_filter :build_archive_links, :get_tags
   
   caches_page :index, :tagged, :by_date, :feed
   
@@ -128,8 +128,11 @@ class MainController < ApplicationController
 				@links.push([name, linkage]) unless @links.include?([name, linkage])
 			end
 		end
-		
-		@links #return
+	end
+	
+	def get_tags
+	  @tags = Tag.find(:all, :order => 'name')
+	  @item_count = Post.count(:all)
 	end
 	
 	def get_month_name(num)
