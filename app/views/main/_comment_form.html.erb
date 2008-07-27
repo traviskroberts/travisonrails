@@ -12,7 +12,8 @@
 		<p>
 			<%= hidden_field 'comment', 'date', :value => Date.today %>
 			<%= hidden_field 'comment', 'post_id', :value => id %>
-			<%= submit_tag 'Submit' %>
+			<%= submit_tag 'Submit', :onclick => "Element.show('comment_busy')" %>
+			<span id="comment_busy" style="display:none;"><br /><%= image_tag 'busy.gif', :alt => 'loading...' %></span>
 		</p>
 	<% end %>
 </div><!-- comment_form -->
