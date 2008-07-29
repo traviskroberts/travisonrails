@@ -41,16 +41,6 @@ td { border-bottom:1px solid #BBB; }
 th { border-bottom:1px solid #000; }
 tr:hover { background-color:#EEE; }
 
-pre {
-	line-height:125%;
-	width:480px;
-	padding:10px;
-	margin:0 5px 10px 5px;
-	background-color:#000;
-	color:#FFF;
-	overflow:auto;
-}
-
 kbd {
 	font-size:1.1em;
 	font-family:courier;

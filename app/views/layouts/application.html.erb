@@ -13,12 +13,13 @@
 	<link rel="shortcut icon" href="/favicon.ico" />
 	
 	<%= auto_discovery_link_tag(:rss, post_rss_path(:rss)) %>
+	<%= stylesheet_link_tag 'travisonrails', 'SyntaxHighlighter' %>
 	<%= javascript_include_tag :defaults %>
-	<%= stylesheet_link_tag "travisonrails" %>
+	<%= javascript_include_tag 'syntax_highlighter/shCore', 'syntax_highlighter/shBrushRuby', 'syntax_highlighter/shBrushCss', 'syntax_highlighter/shBrushXml.js' %>
 	
 </head>
 
-<body>
+<body onload="setup_syntax_highlighting()">
 
 <div id="wrapper">
 
