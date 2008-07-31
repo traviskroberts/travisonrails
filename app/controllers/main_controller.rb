@@ -24,8 +24,7 @@ class MainController < ApplicationController
 		end
     # now get the post(s) for that date
 		if params[:title]
-			title = params[:title].gsub("-", " ")
-			@post = Post.find(:first, :conditions => "title LIKE '#{title}' AND date LIKE '#{@query}'", :order => 'date DESC')
+			@post = Post.find(:first, :conditions => "date LIKE '#{@query}'")
 		else
 			@posts = Post.find(:all, :conditions => "date LIKE '#{@query}'", :order => 'date')
 		end

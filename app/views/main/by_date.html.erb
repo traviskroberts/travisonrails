@@ -4,7 +4,7 @@
 						date_url(:year => post.date.year,
 									:month => post.date.strftime("%m"),
 									:day => post.date.strftime("%d"),
-									:title => post.title.gsub(' ', '-') ),
+									:title => strip_chars(post.title)),
 						:class => "title_link" %></h1>
 		
 		<p class="posted">
@@ -14,7 +14,7 @@
 						date_path(:year => post.date.year,
 									:month => post.date.strftime("%m"),
 									:day => post.date.strftime("%d"),
-									:title => post.title.gsub(' ', '-') ),
+									:title => strip_chars(post.title)),
 						:class => "comments" %>
 		</p>
 		<%= post.content %>
