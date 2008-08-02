@@ -49,6 +49,8 @@ kbd {
 	color:#2D2D2D;
 }
 
+pre { width:100%; overflow:auto; }
+
 #wrapper { width:800px; margin:15px auto; background-color:#FFF; }
 
 #header {

@@ -2,7 +2,7 @@
 {
 	font-family: "Consolas", "Courier New", Courier, mono, serif;
 	font-size: 14px;
-	background-color: #E7E5DC;
+	background-color: #F8F8F8;
 	width: 99%;
 	overflow: auto;
 	margin: 0 0 15px 0 !important;
@@ -54,6 +54,8 @@
 	list-style: none !important;
 	margin-left: 0px !important;
 }
+
+.dp-highlighter ol li { white-space:nowrap !important; }
 
 .dp-highlighter ol li,
 .dp-highlighter .columns div
@@ -179,7 +181,7 @@
 
 /* Language specific styles */
 
-.dp-highlighter .comment, .dp-highlighter .comments { color: #008200; background-color: inherit; }
+.dp-highlighter .comment, .dp-highlighter .comments { color: #999; background-color: inherit; }
 .dp-highlighter .string { color: blue; background-color: inherit; }
 .dp-highlighter .keyword { color: #069; font-weight: bold; background-color: inherit; }
 .dp-highlighter .preprocessor { color: gray; background-color: inherit; }

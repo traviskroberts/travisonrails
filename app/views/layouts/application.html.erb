@@ -15,7 +15,11 @@
 	<%= auto_discovery_link_tag(:rss, post_rss_path(:rss)) %>
 	<%= stylesheet_link_tag 'travisonrails', 'SyntaxHighlighter' %>
 	<%= javascript_include_tag :defaults %>
-	<%= javascript_include_tag 'syntax_highlighter/shCore', 'syntax_highlighter/shBrushRuby', 'syntax_highlighter/shBrushCss', 'syntax_highlighter/shBrushXml.js', 'syntax_highlighter/shBrushJScript.js' %>
+	<%= javascript_include_tag 'syntax_highlighter/shCore' %>
+	<%= javascript_include_tag 'syntax_highlighter/shBrushRuby' %>
+	<%= javascript_include_tag 'syntax_highlighter/shBrushCss' %>
+	<%= javascript_include_tag 'syntax_highlighter/shBrushXml.js' %>
+	<%= javascript_include_tag 'syntax_highlighter/shBrushJScript.js' %>
 	
 </head>
 
