@@ -58,7 +58,7 @@ class MainController < ApplicationController
 	def tagged
     tag_name = params[:name].gsub('-',' ')
     @tag = Tag.find_by_name(tag_name)
-    @posts = @tag.posts.paginate(:all, :page => params[:page], :per_page => 5, , :order => 'date DESC')
+    @posts = @tag.posts.paginate(:all, :page => params[:page], :per_page => 5, :order => 'date DESC')
   rescue Exception => ex
     logger.warn("ERROR: " + ex.message)
     flash.now[:error] = 'There was an error getting the posts for that tag.'
