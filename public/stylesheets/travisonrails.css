@@ -91,6 +91,7 @@ pre { width:100%; overflow:auto; }
 	float:left;
 	text-align:center;
 }
+#rightCol #github-badge { text-align:left; }
 
 #nav {
 	width:233px;
