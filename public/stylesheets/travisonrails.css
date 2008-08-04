@@ -19,7 +19,7 @@ h1 {
 
 h2 {
 	padding:0 0 5px 0;
-	margin:0;
+	margin:0 0 5px 0;
 	border-bottom:1px solid #000;
 	font-size:18px;
 	color:#666;
@@ -91,7 +91,23 @@ pre { width:100%; overflow:auto; }
 	float:left;
 	text-align:center;
 }
-#rightCol #github-badge { text-align:left; }
+#rightCol #github-badge { background-color:transparent; }
+#rightCol #github-badge .header span a { background-color:transparent; }
+#rightCol #github-badge h2.header span.title {
+	font-family:georgia;
+	font-size:18px;
+	color:#666;
+	font-weight:bold;
+	display:inline;
+}
+#rightCol #github-badge h2.header span { display:none; }
+#rightCol #github-badge #repo_listing { padding:0 0 5px 0; }
+#rightCol #github-badge #repo_listing li { background-color:transparent; border:none; }
+#rightCol #github-badge #repo_listing li a { color:#369; text-decoration:underline; padding:1px; font-size:12px; }
+#rightCol #github-badge #repo_listing li a:hover { background-color:#369; color:#FFF; text-decoration:none; }
+#rightCol #github-badge .footer { font-size:8px; }
+#rightCol #github-badge .footer a { color:#369; text-decoration:underline; padding:1px; }
+#rightCol #github-badge .footer a:hover { background-color:#369; color:#FFF; text-decoration:none; }
 
 #nav {
 	width:233px;
