@@ -94,7 +94,7 @@ pre { width:100%; overflow:auto; }
 #rightCol #github-badge { background-color:transparent; }
 #rightCol #github-badge .header span a { background-color:transparent; }
 #rightCol #github-badge h2.header span.title {
-	font-family:georgia;
+	font-family:georgia, verdana, sans-serif;
 	font-size:18px;
 	color:#666;
 	font-weight:bold;
