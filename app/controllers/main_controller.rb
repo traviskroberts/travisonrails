@@ -35,22 +35,35 @@ class MainController < ApplicationController
 	
 	def comment
 		@comment = Comment.new(params[:comment])
-		render :update do |page|
+		@post = @comment.post
+		respond_to do |format|
 		  if @comment.save
-  			page.replace_html 'comment_notice', 'Your comment has been submitted and is awaiting approval.'
-  			page.show 'comment_notice'
-  			page.hide 'comment_form'
-        # clear out params
-        page['comment_name'].value = ''
-        page['comment_content'].value = ''
-  		else
-  			page.replace_html 'comment_error', 'Comment could not be recorded.'
-  			page.show 'comment_error'
-  		end
+		    @saved = true
+    		ContactMailer.deliver_contact(@post)
+		    format.html {
+		      @comment = nil # clear out so that it  isn't re-displayed
+		      flash.now[:notice] = 'Your comment has been added and is awaiting approval.'
+		      render  :action => 'by_date',
+		              :year => @post.date.year,
+		              :month => @post.date.month,
+                  :day => @post.date.day,
+                  :title => @post.title.gsub(' ','-').gsub(/[^a-z0-9\-]+/i, '')
+        }
+        format.js # rjs template
+      else
+        @saved = false
+        format.html {
+		      @comment = nil # clear out so that it  isn't re-displayed
+          flash.now[:error] = 'Your comment could not be saved.'
+		      render  :action => 'by_date',
+		              :year => @post.date.year,
+		              :month => @post.date.month,
+                  :day => @post.date.day,
+                  :title => @post.title.gsub(' ','-').gsub(/[^a-z0-9\-]+/i, '')
+        }
+        format.js #rjs template
+      end
 		end
-		
-		post = Post.find(params[:comment][:post_id])
-		ContactMailer.deliver_contact(post)
 	rescue Exception => ex
 	  logger.warn("ERROR: " + ex.message)
 	end

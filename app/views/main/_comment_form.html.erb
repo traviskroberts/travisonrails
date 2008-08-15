@@ -1,6 +1,6 @@
 <div id="comment_form">
 	<p id="comment_error" style="display:none;"></p>
-	<% form_remote_tag(:url => {:action => 'comment'}) do %>
+	<% form_remote_tag(:url => {:action => 'comment'}, :html => {:id => 'form_for_comment'}) do %>
 		<p>
 			<label for="comment_name">Name:</label><br />
 			<%= text_field 'comment', 'name', :class => 'styled_input' %>

@@ -4,6 +4,10 @@ class Manage::PostsController < ApplicationController
 	
 	cache_sweeper :site_sweeper, :only => [:create, :update, :destroy, :delete_comment, :approve]
 	
+	def login
+	  redirect_to admin_posts_path unless session[:user].nil?
+	end
+	
 	def signin
     user_params = params[:user]
     session[:user] = User.authenticate(user_params[:username],user_params[:password]).id
