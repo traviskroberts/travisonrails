@@ -3,7 +3,7 @@ unless @tags.nil? or @tags.empty?
 	# SIZE TAGS ACCORDING TO POPULARITY
 	tag_vals = []
 	for tag in @tags
-		amt = tag.posts.count
+		amt = tag.posts.length
 		ratio = ((amt.to_f / @item_count.to_f) * 100).to_i
 		tag_vals << [tag.name, amt, ratio] unless amt==0
 	end

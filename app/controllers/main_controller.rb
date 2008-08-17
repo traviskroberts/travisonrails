@@ -5,7 +5,7 @@ class MainController < ApplicationController
   caches_page :index, :tagged, :by_date, :feed
   
   def index
-		@posts = Post.paginate(:all, :page => params[:page], :per_page => 5, :order => 'date DESC')
+		@posts = Post.paginate(:all, :page => params[:page], :per_page => 5, :include => [:approved_comments, :tags], :order => 'date DESC')
 	rescue Exception => ex
 	  logger.warn("ERROR: " + ex.message)
 	  flash.now[:error] = 'There was an error getting the latest posts.'
@@ -24,9 +24,9 @@ class MainController < ApplicationController
 		end
     # now get the post(s) for that date
 		if params[:title]
-			@post = Post.find(:first, :conditions => "date LIKE '#{@query}'")
+			@post = Post.first(:include => [:approved_comments, :tags], :conditions => "date LIKE '#{@query}'")
 		else
-			@posts = Post.find(:all, :conditions => "date LIKE '#{@query}'", :order => 'date')
+			@posts = Post.find(:all,:include => [:approved_comments, :tags], :conditions => "date LIKE '#{@query}'", :order => 'date')
 		end
 	rescue Exception => ex
 	  logger.warn("ERROR: " + ex.message)
@@ -144,7 +144,7 @@ class MainController < ApplicationController
 	end
 	
 	def get_tags
-	  @tags = Tag.find(:all, :order => 'name')
+	  @tags = Tag.find(:all, :order => 'name', :include => :posts)
 	  @item_count = Post.count(:all)
 	end
 	
