@@ -71,7 +71,7 @@ class MainController < ApplicationController
 	def tagged
     tag_name = params[:name].gsub('-',' ')
     @tag = Tag.find_by_name(tag_name)
-    @posts = @tag.posts.paginate(:all, :page => params[:page], :per_page => 5, :order => 'date DESC')
+    @posts = @tag.posts.paginate(:all, :page => params[:page], :per_page => 5, :order => 'date DESC') unless @tag.nil?
   rescue Exception => ex
     logger.warn("ERROR: " + ex.message)
     flash.now[:error] = 'There was an error getting the posts for that tag.'
@@ -84,9 +84,18 @@ class MainController < ApplicationController
     flash.now[:error] = 'There was an error generating the feed.'
 	end
 	
+  # routes to fix old links
 	def old_rss
-	  redirect_to(post_rss_path(:rss))
+	  redirect_to post_rss_path(:rss)
 	end
+	
+	def category
+	  redirect_to tagged_path(:name => params[:name])
+	end
+	
+	def posts
+	  redirect_to home_path
+  end
 	
 	private
 	def build_date(date)

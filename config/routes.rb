@@ -13,6 +13,9 @@ ActionController::Routing::Routes.draw do |map|
 						:requirements => { :year => /(19|20)\d\d/, :month => /[01]?\d/, :day => /[0-3]?\d/},
 						:day => nil, :month => nil, :title => nil
 		m.tagged 'posts/tagged-with/:name/:page', :action => 'tagged', :requirements => {:page => /\d+/}, :page => nil
+		m.category 'category/:name', :action => 'category'
+		m.posts 'posts', :action => 'posts'
+		m.feed 'feed', :action => 'old_rss'
   end
   
   map.connect 'manage', :controller => 'manage/posts', :action => 'login'
