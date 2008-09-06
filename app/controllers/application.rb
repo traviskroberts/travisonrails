@@ -6,8 +6,8 @@ class ApplicationController < ActionController::Base
 
   # See ActionController::RequestForgeryProtection for details
   # Uncomment the :secret if you're not using the cookie session store
-  protect_from_forgery # :secret => '2f4193e3ff63d9b79b7ad49423a96d54'
-
+  protect_from_forgery
+  
 	# --------------------------------------------------------------------
 	protected
 		def handle_tags(params='')

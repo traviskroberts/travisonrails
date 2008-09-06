@@ -1,6 +1,7 @@
 class MainController < ApplicationController
   before_filter :build_archive_links, :get_tags
   protect_from_forgery :only => []
+  protect_forms_from_spam :only => :comment
   
   caches_page :index, :tagged, :by_date, :feed
   
