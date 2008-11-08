@@ -1,27 +1,5 @@
 <%- if @posts and @posts.length > 0 -%>
-	<%- @posts.each do |post| -%>
-		<h1><%= link_to post.title,
-						date_path(:year => post.date.year,
-									:month => post.date.strftime("%m"),
-									:day => post.date.strftime("%d"),
-									:title => strip_chars(post.title)),
-						:class => "title_link" %></h1>
-		
-		<%- date_len = (Time.now.to_date - post.date) -%>
-		<p class="posted">Published on <%= post.date.to_formatted_s(:long) %>
-			&nbsp;|&nbsp;
-			<%= link_to pluralize(post.approved_comments.length, 'comment'), 
-						date_path(:year => post.date.year,
-									:month => post.date.strftime("%m"),
-									:day => post.date.strftime("%d"),
-									:title => strip_chars(post.title)),
-						:class => "comments" %>
-		</p>
-		
-		<%= post.content %>
-		<%= show_tags(post) %>
-		<br />
-	<%- end -%>
+	<%= render :partial => 'post', :collection => @posts %>
 	<%= will_paginate @posts %>
 <%- else -%>
 	<p>There are no posts at this time.</p>

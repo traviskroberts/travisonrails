@@ -15,12 +15,11 @@
 
 <body>
 
-<div id="wrapper">
+<div id="header">
+	<%= link_to '', paged_home_path(:page => 1), :class => 'logolink' %>
+</div><!-- header -->
 
-	<div id="header">
-		<%= link_to '', paged_home_path(:page => 1), :class => 'logolink' %>
-	</div>
-	
+<div id="wrapper">
 	<div id="content">
 		<%= render :partial => 'shared/notice_div' %>
 		<% if session[:user] -%>

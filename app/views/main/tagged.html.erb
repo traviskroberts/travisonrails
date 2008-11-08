@@ -1,40 +1,14 @@
 <%- unless @tag.nil? -%>
 	<%- @page_title = "Travis on Rails - Posts Tagged with \"#{@tag.name}\"" -%>
-	<h1 class="tag_h1">Posts Tagged with "<%= @tag.name %>"</h1>
+	<%- content_for :infobox do -%>
+		<div class="infobox_top"></div>
+		<div class="infobox_bottom">
+			<h1>Posts Tagged with "<%= @tag.name %>"</h1>
+		</div><!-- infobox_bottom -->
+	<%- end -%>
+	
 	<%- if @posts and @posts.length > 0 -%>
-		<%- @posts.each do |post| -%>
-			<h1><%= link_to post.title,
-							date_path(:year => post.date.year,
-										:month => post.date.strftime("%m"),
-										:day => post.date.strftime("%d"),
-										:title => strip_chars(post.title)),
-							:class => "title_link" %></h1>
-		
-			<%- date_len = (Time.now.to_date - post.date) -%>
-			<p class="posted">Published <%= time_ago_in_words(post.date.to_time) %>
-				<%- if date_len == 0 -%>
-					today
-				<%- elsif date_len == 1 -%>
-					<%= date_len %> day ago
-				<%- elsif date_len > 1 and date_len < 30 -%>
-					<%= date_len %> days ago
-				<%- elsif date_len > 30 -%>
-					on <%= post.date.to_formatted_s(:long) %>
-				<%- end -%>
-				&nbsp;|&nbsp;
-				<%= link_to pluralize(post.approved_comments.length, 'comment'), 
-							date_path(:year => post.date.year,
-										:month => post.date.strftime("%m"),
-										:day => post.date.strftime("%d"),
-										:title => strip_chars(post.title)),
-							:class => "comments" %>
-			</p>
-		
-			<%= post.content %>
-			<%= show_tags(post) %>
-			<br />
-			
-		<%- end -%>
+		<%= render :partial => 'post', :collection => @posts %>
 		<%= will_paginate @posts %>
 	<%- else -%>
 		<p>There are no posts at this time.</p>

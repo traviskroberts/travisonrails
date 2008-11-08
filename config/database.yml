@@ -2,8 +2,8 @@
 development:
   adapter: mysql
   database: travisonrails
-  username: root
-  password:
+  username: webuser
+  password: webuser
   host: localhost
 
 # Warning: The database defined as "test" will be erased and
