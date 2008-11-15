@@ -1,4 +1,12 @@
-<% form_for(:post, @post, :url => admin_post_path(@post), :html => {:method => 'put'}) do %>
-	<%= render :partial => 'form' %>
-	<p><%= submit_tag 'Update Post' %> or <%= link_to 'cancel', admin_posts_path %></p>
-<% end %>
+<p class="cancel_top"><%= link_to 'Cancel', admin_posts_path, :class => 'cancel' %></p>
+<h3>Edit Blog Post</h3>
+<div class="formCluster">
+	<% form_for(:post, @post, :url => admin_post_path(@post), :html => {:method => 'put'}) do %>
+		<%= render :partial => 'form' %>
+		<p>
+			<%= submit_tag 'Update Blog Post', :class => 'greyButton' %>
+			&nbsp;
+			or <%= link_to 'Cancel', admin_posts_path, :class => 'cancel' %>
+		</p>
+	<% end %>
+</div><!-- formCluster -->

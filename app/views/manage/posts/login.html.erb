@@ -1,12 +1,16 @@
-<h1>Login</h1>
-<% form_tag(signin_admin_posts_path) do %>
-	<p>
-		<label for="username">Username:</label><br>
-		<%= text_field "user", "username" %>
-	</p>
-	<p>
-		<label for="password">Password:</label><br>
-		<%= password_field "user", "password" %>
-	</p>
-	<p><%= submit_tag "Login" %></p>
-<% end %>
+<div id="loginbox">
+	<h3>Sign-in</h3>
+	<div id="login_form">
+		<% form_tag signin_admin_posts_path do %>
+			<p>
+				<label for="username">Username</label> <br />
+				<%= text_field_tag :username, '', :class => 'formfield' %>
+			</p>
+			<p>
+				<label for="password">Password</label> <br />
+				<%= password_field_tag :password, '', :class => 'formfield' %>
+			</p>
+			<%= image_submit_tag 'btn_signin.gif', :alt => 'Login' %>
+		<% end %>
+	</div> <!-- login_form -->
+</div> <!-- loginbox -->

@@ -9,8 +9,7 @@ class Manage::PostsController < ApplicationController
 	end
 	
 	def signin
-    user_params = params[:user]
-    session[:user] = User.authenticate(user_params[:username],user_params[:password]).id
+    session[:user] = User.authenticate(params[:username],params[:password]).id
     redirect_to admin_posts_path
   rescue Exception => ex
     logger.warn('ERROR' + ex.message)
@@ -28,7 +27,7 @@ class Manage::PostsController < ApplicationController
   
   # GET /posts
   def index
-    @posts = Post.paginate(:all, :page => params[:page], :per_page => 10, :order => 'date DESC')
+    @posts = Post.paginate(:all, :page => params[:page], :per_page => 10, :order => 'posts.date DESC')
     respond_to do |format|
       format.html # index.html.erb
     end

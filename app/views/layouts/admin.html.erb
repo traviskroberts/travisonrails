@@ -1,45 +1,74 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-	
+
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-	<title>Travis On Rails - Admin</title>
-	
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="author" content="Travis Roberts" />
-	<meta name="description" content="" />
-	<meta name="keywords" content="" />
-	
+	<title><%= @page_title ||= 'Travis on Rails - Admin' %></title>
+
 	<%= javascript_include_tag :defaults %>
-	<%= stylesheet_link_tag "travisonrails" %>
+	<%= stylesheet_link_tag 'manager' %>
+	<%= yield :header %>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="MSSmartTagsPreventParsing" content="TRUE" />
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<meta name="rating" content="General" />
+	<meta name="MS.LOCALE" content="EN-US" />
+	<meta name="robots" content="index,follow" />
+	
+	<!--[if lt IE 7]>
+		<style type="text/css">
+			#content, #header{ width:880px;}
+			#information th{ background-position: 100% 0; }
+		</style>
+	<![endif]-->
+	
 </head>
-
 <body>
-
-<div id="header">
-	<%= link_to '', paged_home_path(:page => 1), :class => 'logolink' %>
-</div><!-- header -->
-
-<div id="wrapper">
+	<div id="header">
+		<p id="login">
+			<% if session[:user] -%>
+				Logged in as: <%= @logged_in_email %>
+				&nbsp;|&nbsp;
+				<%= link_to 'Sign-out', { :controller => '/manage/posts', :action => 'logout' } %>
+			<% end -%>
+		</p>
+		<%= image_tag 'logo_ro-trans.png', :class => 'logo' %>
+		<ul class="nav">
+			<li class='active'><span class="left_edge"></span><%= link_to "Site Content", :controller => '/manage/posts', :action => 'index' %><span class="right_edge"></span></li>
+		</ul>
+	</div> <!-- header -->
 	<div id="content">
-		<%= render :partial => 'shared/notice_div' %>
 		<% if session[:user] -%>
-			<div id="admin_nav">
-				<div class="padding">
-					<p><%= link_to 'Manage Posts', admin_posts_path %></p>
-					<p><%= link_to 'Logout', logout_admin_posts_path %></p>
-				</div><!-- padding -->
-			</div><!-- admin_nav -->
+			<div id="manageNav">
+				<ul>
+					<li><%= link_to 'Manage Posts', admin_posts_path %></li>
+				</ul>
+				<p><%= link_to 'View Site', home_url %></p>
+			</div><!-- manageNav -->
+			
+			<div id="mainCell">				
+				<div class="main_t">
+				  	<div class="c"></div>				
+				</div>	
+
+				<div class="main_m">
+			 		<div class="c">
+						<div id="actual_content">
+							<%= render :partial => 'shared/notice_div' %>
+							<%= yield %>
+						</div><!-- actual_content -->
+					</div>
+				</div>
+
+				<div class="ftr">
+					<div class="c"></div>
+				</div>
+			</div> <!-- mainCell -->
+		<%- else -%>
+			<%= yield %>
 		<% end -%>
-		
-		<div id="admin_main">
-			<div class="padding">
-				<%= yield %>
-			</div><!-- padding -->
-		</div><!-- admin_main -->
-		
-		<div class="clear"></div>
-		
-	</div><!-- content -->
-</div><!-- wrapper -->
+		<div style="clear:both;"></div>
+	</div> <!-- content -->
 </body>
 </html>

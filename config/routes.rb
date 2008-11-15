@@ -18,7 +18,7 @@ ActionController::Routing::Routes.draw do |map|
 		m.feed 'feed', :action => 'old_rss'
   end
   
-  map.connect 'manage', :controller => 'manage/posts', :action => 'login'
+  map.connect 'manage/site', :controller => 'manage/posts', :action => 'login'
   
   map.resources :posts,
                 :path_prefix => '/manage',
