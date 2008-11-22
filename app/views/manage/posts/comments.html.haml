@@ -1,0 +1,22 @@
+#information
+  - if @comments and @comments.length > 0
+    %table{:width => "100%", :cellspacing => "0"}
+      %tr
+        %th{:width => "5%"} &nbsp;
+        %th{:width => "20%"} Name
+        %th{:width => "60%"} Comment
+        %th{:width => "15%"} Approve
+      - @comments.each do |comment|
+        %tr.rowData{:id => dom_id(comment)}
+          %td= link_to_remote	image_tag("trash.gif"), :url => delete_comment_admin_post_path(comment), :method => 'delete', :confirm => 'Are you sure you want to delete this comment?'
+          %td=h comment.name
+          %td=h comment.content
+          %td{:id => "comment_status_#{comment.id}"}
+            - if comment.approved
+              approved
+            - else
+              = link_to_remote 'approve', :url => approve_admin_post_path(comment), :method => 'put'
+    %br/
+    %p= link_to '&laquo; Back to all posts', admin_posts_path
+  - else
+    %p No comments for this post.

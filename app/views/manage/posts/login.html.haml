@@ -1,0 +1,13 @@
+#loginbox
+  %h3 Sign-in
+  #login_form
+    - form_tag signin_admin_posts_path do
+      %p
+        = label_tag :username
+        %br/
+        = text_field_tag :username, '', :class => 'formfield'
+      %p
+        = label_tag :password
+        %br/
+        = password_field_tag :password, '', :class => 'formfield'
+      = image_submit_tag 'btn_signin.gif', :alt => 'Login'

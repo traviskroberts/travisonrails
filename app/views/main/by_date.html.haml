@@ -1,0 +1,36 @@
+- if @posts and @posts.length > 0
+  = render :partial => 'post', :collection => @posts
+- elsif @post
+  .blog_box_top
+  .blog_box
+    - @page_title = "Travis on Rails &raquo; #{@post.title}"
+    %h1= @post.title
+    
+    .date_box
+      %p.month= @post.date.strftime("%b").upcase
+      %p.day= @post.date.strftime("%d")
+      %p.year= @post.date.strftime("%Y")
+    
+    = @post.content
+    
+    = show_tags(@post)
+    %br/
+    
+    - @post.approved_comments.each do |comment|
+      .comment
+        %p.author
+          %strong=h comment.name
+          said on
+          = succeed ':' do
+            =h comment.date.to_formatted_s(:long)
+        %p= comment.content
+    
+    %p Leave a comment:
+    = render :partial => 'comment_form', :locals => {:id => @post.id}
+    %p
+  .blog_box_bottom
+- else
+  .blog_box_top
+  .blog_box
+    %p There are no posts for this date.
+  .blog_box_bottom

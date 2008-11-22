@@ -1,0 +1,92 @@
+!!! Strict
+%html{html_attrs}
+  %head
+    %title= @page_title ||= 'Travis On Rails - Ruby on Rails, XHTML, CSS, JavaScript, etc.'
+    
+    %meta{"http-equiv" => "Content-Type", :content => "text/html; charset=utf-8"}
+    %meta{:name => "author", :content => "Travis Roberts"}
+    %meta{:name => "description", :content => "A blog about Rails, XHTML, CSS, and JavaScript."}
+    %meta{:name => "keywords", :content => "rails, ruby, javascript, erb, xhtml, css"}
+    
+    %link{:rel => "shortcut icon", :href => "/favicon.ico"}
+    = auto_discovery_link_tag(:rss, post_rss_path(:rss))
+    
+    = stylesheet_link_tag 'travisonrails', 'SyntaxHighlighter'
+    = javascript_include_tag :defaults
+    = javascript_include_tag 'syntax_highlighter/shCore', 'syntax_highlighter/shBrushRuby', 'syntax_highlighter/shBrushCss', 'syntax_highlighter/shBrushXml.js', 'syntax_highlighter/shBrushJScript.js'
+    
+    /[if lt IE 7]
+      %script{:type => "text/javascript", :src => "/javascripts/IE7.js"}
+      :sass
+        .date_box
+          left: -63px
+    /[if IE 7]
+      :sass
+        .paginationa, .pagination a:hover
+          border: none
+  
+  %body{:onload => "setup_syntax_highlighting()"}
+    #header
+      = link_to '', paged_home_path(:page => 1), :class => 'logolink'
+    
+    #wrapper
+      #content
+        = yield :infobox
+        
+        #blog
+          = render :partial => 'shared/notice_div'
+          = yield
+        
+        #rightCol
+          .sidebox_top
+          .sidebox_bottom
+            %h2.links Links
+            %ul
+              %li= link_to 'Twitter', 'http://twitter.com/travisroberts', :popup => true
+              %li= link_to 'Flickr', 'http://flickr.com/photos/traviskroberts', :popup => true
+              %li= link_to 'Plexus Web Creations', 'http://plexusweb.com', :popup => true
+              %li= link_to 'Respect Alumni', 'http://respectalumni.com', :popup => true
+              %li= link_to 'Veader', 'http://codemonky.com', :popup => true
+              %li= link_to 'Colin Jones, Trumpet', 'http://trumpetperformance.com', :popup => true
+              %li= link_to 'Andrew Reifman Graphic Design', 'http://andrewreifman.com', :popup => true
+          
+          .sidebox_top
+          .sidebox_bottom
+            %h2.archives Archives
+            %ul
+              - if @links and @links.length > 0
+                - @links.each do |link|
+                  %li= link_to link[0], "/#{link[1]}"
+              %li= link_to "Current Posts", paged_home_path(:page => 1)
+          
+          .sidebox_top
+          .sidebox_bottom
+            %h2.tags Tags
+            = render :partial => "shared/tag_cloud"
+        
+        .clear
+        %br/
+        
+        %p.valid_links
+          %a{:href => "http://validator.w3.org/check/referer"}
+            %img{:src => "/images/xhtml.gif", :alt => "[Valid XHTML]", :title => "Validate this page for XHTML"}
+          %a{:href => "http://jigsaw.w3.org/css-validator/check/referer"}
+            %img{:src => "/images/css.gif", :alt => "[Valid CSS]", :title => "Validate this page for CSS"}
+          %a{:href => "http://www.feedvalidator.org/check.cgi?url=http%3A//www.travisonrails.com/feed/posts.rss"}
+            %img{:src => "/images/rss.gif", :alt => "[Valid RSS]", :title => "Validate the RSS feed"}
+          %a{:href => "http://www.rubyonrails.com"}
+            %img{:src => "/images/rails_icon.gif", :alt => "[Rails Powered]", :title => "Built with Ruby on Rails"}
+        
+        %p.center
+          &copy;
+          = Date.today.year
+          = succeed '.' do
+            = mail_to "traviskroberts@gmail.com", "Travis Roberts", :encode => "hex"
+          All rights reserved.
+        
+        .clear
+    
+    %script{:src => "http://www.google-analytics.com/urchin.js", :type => "text/javascript"}
+    :javascript
+      _uacct = "UA-2032096-1";
+      urchinTracker();

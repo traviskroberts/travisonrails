@@ -1,6 +1,0 @@
-<%- if @posts and @posts.length > 0 -%>
-	<%= render :partial => 'post', :collection => @posts %>
-	<%= will_paginate @posts %>
-<%- else -%>
-	<p>There are no posts at this time.</p>
-<%- end -%>
