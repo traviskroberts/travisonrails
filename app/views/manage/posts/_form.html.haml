@@ -1,18 +1,18 @@
 .formClusterGroup
   %h4 Blog Post Details
   %p
-    = f.label :title
+    %label{:for => 'post_title'} Title
     %br/
     = f.text_field :title, :class => 'formfield'
   %p
-    = f.label :date
+    %label{:for => 'post_date'} Date
     %br/
     = f.date_select :date, :order => [:month, :day, :year]
   %p
-    = f.label :content
+    %label{:for => 'post_content'} Content
     %br/
     = f.text_area :content, :size => '35x10', :class => 'formfield'
   %p
-    = label_tag :tags
+    %label{:for => 'tags'} Tags
     %br/
     = text_field_tag :tags, (@tags.nil? or @tags.empty?) ? params[:tags] : @tags.join(", "), :class => 'formfield'

@@ -2,11 +2,11 @@
   %p#comment_error{:style => "display:none;"}
   - form_remote_tag(:url => {:action => 'comment'}, :html => {:id => 'form_for_comment'}) do
     %p
-      = label_tag :name
+      %label{:for => 'name'} Name
       %br/
       = text_field 'comment', 'name', :class => 'styled_input'
     %p
-      = label_tag :comment
+      %label{:for => 'comment'} Comment
       %br/
       = text_area 'comment', 'content', :size => '35x4', :class => 'styled_input'
     %p

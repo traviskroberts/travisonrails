@@ -3,11 +3,11 @@
   #login_form
     - form_tag signin_admin_posts_path do
       %p
-        = label_tag :username
+        %label{:for => 'username'} Username
         %br/
         = text_field_tag :username, '', :class => 'formfield'
       %p
-        = label_tag :password
+        %label{:for => 'Password'} Password
         %br/
         = password_field_tag :password, '', :class => 'formfield'
       = image_submit_tag 'btn_signin.gif', :alt => 'Login'
