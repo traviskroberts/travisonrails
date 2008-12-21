@@ -19,6 +19,8 @@
 	border: none;
 }
 
+.dp-highlighter ol li { font-size:13px; }
+
 .dp-highlighter a,
 .dp-highlighter a:hover
 {

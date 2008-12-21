@@ -49,7 +49,7 @@ kbd {
 	color:#2D2D2D;
 }
 
-pre { width:100%; overflow:auto; }
+pre { overflow:auto; margin:0; }
 
 #header { width:374px; height:81px; margin:0 auto 20px auto; padding:0; }
 #header .logolink { display:block; width:374px; height:81px; background:url(/images/logo-trans.png) no-repeat 0 0; }
@@ -257,6 +257,10 @@ textarea.styled_admin_input { height:400px; width:100%; }
 }
 
 .adsense { width:728px; margin:0 auto 10px auto; }
+
+.gist pre { padding:10px 10px 10px 15px; }
+.gist-data { font-size:13px; }
+.gist-meta { font-size:11px !important; } /* for gist embeds */
 
 /*styles for tag cloud*/
 .level_one { font-size:12px; }
