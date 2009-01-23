@@ -6,8 +6,8 @@ Options +FollowSymLinks +ExecCGI
 RewriteEngine On
 
 # Redirect www.travisonrails.com to travisonrails.com with 301
-RewriteCond %{http_host} ^www.travisonrails.com [nc]
-RewriteRule ^/(.*)$ http://travisonrails.com/$1 [r=301,nc]
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
 
 RewriteRule ^$ cache/index.html [QSA]
 RewriteRule ^$ index.html [QSA]
