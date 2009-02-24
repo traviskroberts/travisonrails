@@ -122,7 +122,7 @@ class MainController < ApplicationController
 		#get all posts of the current year
 		@results = Post.find(:all, :conditions => "date LIKE '#{@cur_year}%'", :order => 'date DESC')
 		if @results and @results.length > 0
-			for p in @results
+			@results.each do |p|
 				#if the month of the post is less than the current month, make a link to it
 				if p.date.month < @month
 					#this block fixes the single integer returned from the month() and day() methods
@@ -143,7 +143,7 @@ class MainController < ApplicationController
 		#find all the posts that are not from the current year
 		@results = Post.find(:all, :conditions => "date NOT LIKE '#{@cur_year}%'", :order => 'date DESC')
 		if @results and @results.length > 0
-			for p in @results
+			@results.each do |p|
 				#generate the link's name and the link's URL
 				name = p.date.year.to_s
 				linkage = p.date.year.to_s
