@@ -68,7 +68,7 @@ pre { overflow:auto; margin:0; }
 #message p { padding:0; }
 
 #blog { width:530px; float:left; margin-right:12px; }
-#blog ul, #blog ol, #blog p { color:#333; }
+#blog ul, #blog ol, #blog p { color:#333; font-size:14px; }
 
 #rightCol {
 	width:240px;
@@ -259,7 +259,7 @@ textarea.styled_admin_input { height:400px; width:100%; }
 .adsense { width:728px; margin:0 auto 10px auto; }
 
 .gist pre { padding:10px 10px 10px 15px; }
-.gist-data { font-size:12px !important; }
+.gist-data { font-size:13px !important; }
 .gist-meta { font-size:10px !important; } /* for gist embeds */
 
 /*styles for tag cloud*/
