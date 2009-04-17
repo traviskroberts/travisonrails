@@ -51,9 +51,9 @@ kbd {
 
 pre { overflow:auto; margin:0; }
 
-#header { width:374px; height:81px; margin:0 auto 20px auto; padding:0; }
-#header .logolink { display:block; width:374px; height:81px; background:url(/images/logo-trans.png) no-repeat 0 0; }
-#header .logolink:hover { background-color:transparent; background:url(/images/logo_ro-trans.png) no-repeat 0 0; }
+#header { width:374px; height:81px; overflow:hidden; margin:0 auto 20px auto; padding:0; }
+#header .logolink { display:block; width:374px; height:81px; background:url('/images/logo-trans.png') no-repeat 0 0; }
+#header .logolink:hover { background-color:transparent; background:url('/images/logo-trans.png') no-repeat 0 -81px; }
 
 #wrapper { width:812px; padding:17px 0 0 0; margin:0 auto; background:transparent url(/images/content_box_top-trans.png) no-repeat 0 0; }
 	
@@ -75,6 +75,12 @@ pre { overflow:auto; margin:0; }
 	float:left;
 	text-align:center;
 	padding:5px 0 0 0;
+}
+#rightCol h2 {
+  font-size:24px;
+  text-align:left;
+  border-color:#666;
+  font-family:arial;
 }
 
 #nav {
@@ -261,6 +267,8 @@ textarea.styled_admin_input { height:400px; width:100%; }
 .gist pre { padding:10px 10px 10px 15px; }
 .gist-data { font-size:13px !important; }
 .gist-meta { font-size:10px !important; } /* for gist embeds */
+
+.no_hover:hover { background:none !important; }
 
 /*styles for tag cloud*/
 .level_one { font-size:12px; }
