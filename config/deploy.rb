@@ -35,23 +35,6 @@ role :scm, domain
 set :app_server, :passenger  # :mongrel or :passenger
 
 # =============================================================================
-# WEB SERVER OPTIONS
-# =============================================================================
-# set :httpd, "apache"   # apache 
-# set :apache_server_name, domain
-# set :apache_server_aliases, %w{alias1 alias2}
-# set :apache_default_vhost, true # force use of  apache_default_vhost_config
-# set :apache_default_vhost_conf, "/etc/httpd/conf/default.conf"
-# set :apache_conf, "/etc/httpd/conf/apps/#{application}.conf"
-# set :apache_proxy_port, 8000
-# set :apache_proxy_servers, 2
-# set :apache_proxy_address, "127.0.0.1"
-# set :apache_ssl_enabled, false
-# set :apache_ssl_ip, "127.0.0.1"
-# set :apache_ssl_forward_all, false
-# set :apache_ctl, "/etc/init.d/httpd"
-
-# =============================================================================
 # DATABASE OPTIONS
 # =============================================================================
 set :database, "mysql"   # mysql or postgresql
@@ -67,3 +50,13 @@ set :repository, "git@github.com:travisr/#{application}.git"
 # =============================================================================
 set :keep_releases, 5
 set :deploy_via, :remote_cache
+
+# action to symlink database file
+namespace :deploy do
+  desc "Symlink database config file."
+  task :symlink_db do
+    run "ln -nfs #{shared_path}/system/database.yml #{release_path}/config/database.yml"
+  end
+end
+ 
+after 'deploy:update_code', 'deploy:symlink_db'
