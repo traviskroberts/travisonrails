@@ -22,7 +22,7 @@
           left: -63px
     /[if IE 7]
       :sass
-        .paginationa, .pagination a:hover
+        .pagination a, .pagination a:hover
           border: none
   
   %body{:onload => "setup_syntax_highlighting()"}
@@ -65,6 +65,9 @@
           .sidebox_bottom
             %h2.tags Tags
             = render :partial => "shared/tag_cloud"
+          
+          .attendee
+            = link_to image_tag("hoedown.png", :alt => "Ruby Hoedown Attendee"), "http://rubyhoedown.com"
           
           %h2 Projects
           =link_to image_tag('listode_logo-trans.png', :alt => 'Listode'), "http://listode.com", :class => "no_hover"
