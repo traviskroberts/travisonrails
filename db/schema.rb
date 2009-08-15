@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080607183438) do
+ActiveRecord::Schema.define(:version => 20090815230555) do
 
   create_table "comments", :force => true do |t|
     t.integer  "post_id"
@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(:version => 20080607183438) do
     t.date     "date"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "featured",   :default => false
+    t.string   "slug"
   end
 
   create_table "posts_tags", :id => false, :force => true do |t|

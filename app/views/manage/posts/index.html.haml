@@ -1,6 +1,12 @@
 = link_to image_tag('btn_add_blog_post.gif', :alt => '+ Add Blog Post'), new_admin_post_path, :class => 'add_button'
 %h1 Blog Posts
 
+.search_form
+  %h3 Search
+  - form_tag({:action => 'search'}) do
+    = text_field_tag "query", "", :class => "search_query"
+    = submit_tag "Submit"
+
 #information
   - if @posts and @posts.length > 0
     %table

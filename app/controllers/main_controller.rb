@@ -1,5 +1,5 @@
 class MainController < ApplicationController
-  before_filter :build_archive_links, :get_tags
+  before_filter :build_archive_links, :get_tags, :get_popular_posts
   protect_from_forgery :only => []
   protect_forms_from_spam :only => :comment
   
@@ -24,8 +24,8 @@ class MainController < ApplicationController
 			redirect_to home_path
 		end
     # now get the post(s) for that date
-		if params[:title]
-			@post = Post.find(:first, :include => [:approved_comments, :tags], :conditions => "posts.date LIKE '#{@query}'")
+		if params[:slug]
+			@post = Post.find_by_slug(params[:slug])
 		else
 			@posts = Post.find(:all,:include => [:approved_comments, :tags], :conditions => "posts.date LIKE '#{@query}'", :order => 'posts.date')
 		end
@@ -99,6 +99,10 @@ class MainController < ApplicationController
   end
 	
 	private
+	def get_popular_posts
+	 @popular_posts = Post.featured.find(:all, :limit => 5)
+	end
+	
 	def build_date(date)
 		if date.month.to_s.length == 1
 			@month = "0" + date.month.to_s

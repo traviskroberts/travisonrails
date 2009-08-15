@@ -35,6 +35,13 @@ class Manage::PostsController < ApplicationController
     logger.warn('ERROR: ' + ex.message)
     flash.now[:error] = 'There was an error getting the list of posts.'
   end
+  
+  def search
+    @posts = Post.paginate(:all, :page => params[:page], :per_page => 10, :conditions => "title LIKE '%#{params[:query]}%'")
+    respond_to do |format|
+      format.html { render :action => 'index' }
+    end
+  end
 
   # GET /posts/1
   def show

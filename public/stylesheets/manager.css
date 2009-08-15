@@ -112,7 +112,7 @@ option { padding:0 5px; }
 #information th {
 	background: url(/images/bg_mng_th.gif) no-repeat 0 100%; 
 	border-bottom: 1px solid #E9E3DC;		
-	padding: 3px 10px 3px 10px;
+	padding: 0 10px;
 	height: 27px;
 }
 #information th + th { background-position: 100% 100%; }	
@@ -157,6 +157,12 @@ option { padding:0 5px; }
 
 #date_column_left { width:20%; min-width:200px; }
 #date_column_right { width:75%; min-width:400px; }
+
+/************ styles for search form ************/
+.search_form { padding:0 0 15px 0; }
+.search_form h3, .search_form form, .search_form input { display:inline-block; vertical-align:bottom; }
+.search_form h3 { margin-right:10px; padding:0; }
+.search_query { width:250px; margin-right:10px; }
 
 /************ styles for notice/error divs ************/
 #notice { background-color: #A4E7A0; border: 1px solid #26722D; }

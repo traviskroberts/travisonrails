@@ -40,17 +40,11 @@
         #rightCol
           .sidebox_top
           .sidebox_bottom
-            %h2.links Links
-            %ul
-              %li= link_to 'Listode', 'http://listode.com', :popup => true
-              %li= link_to 'Twitter', 'http://twitter.com/travisroberts', :popup => true
-              %li= link_to 'GitHub', 'http://github.com/travisr', :popup => true
-              %li= link_to 'Flickr', 'http://flickr.com/photos/travisroberts', :popup => true
-              %li= link_to 'Plexus Web Creations', 'http://plexusweb.com', :popup => true
-              %li= link_to 'Veader', 'http://codemonky.com', :popup => true
-              %li= link_to 'Colin Jones, Trumpet', 'http://trumpetperformance.com', :popup => true
-              %li= link_to 'Andrew Reifman Graphic Design', 'http://andrewreifman.com', :popup => true
-              %li= mail_to 'traviskroberts@gmail.com', 'Contact Me', :encode => 'javascript'
+            %h2.popular Popular Posts
+            - if !@popular_posts.blank?
+              %ul.popular
+                - @popular_posts.each do |post|
+                  %li= link_to post.title, date_path(	:year => post.date.year, :month => post.date.strftime("%m"), :day => post.date.strftime("%d"), :slug => post.slug)
           
           .sidebox_top
           .sidebox_bottom
@@ -66,6 +60,21 @@
             %h2.tags Tags
             = render :partial => "shared/tag_cloud"
           
+          .sidebox_top
+          .sidebox_bottom
+            %h2.links Links
+            %ul
+              %li= link_to "This is What You're Doing Wrong", 'http://thisiswhatyouredoingwrong.com', :popup => true
+              %li= link_to 'Listode', 'http://listode.com', :popup => true
+              %li= link_to 'Twitter', 'http://twitter.com/travisroberts', :popup => true
+              %li= link_to 'GitHub', 'http://github.com/travisr', :popup => true
+              %li= link_to 'Flickr', 'http://flickr.com/photos/travisroberts', :popup => true
+              %li= link_to 'Plexus Web Creations', 'http://plexusweb.com', :popup => true
+              %li= link_to 'Veader', 'http://codemonky.com', :popup => true
+              %li= link_to 'Colin Jones, Trumpet', 'http://trumpetperformance.com', :popup => true
+              %li= link_to 'Andrew Reifman Graphic Design', 'http://andrewreifman.com', :popup => true
+              %li= mail_to 'traviskroberts@gmail.com', 'Contact Me', :encode => 'javascript'
+
           .attendee
             = link_to image_tag("hoedown.png", :alt => "Ruby Hoedown Attendee"), "http://rubyhoedown.com", :class => "no_hover"
             = link_to image_tag("rumble_badge.png", :alt => "Rails Rumble"), "http://r09.railsrumble.com/teams/php-guys", :class => "no_hover"

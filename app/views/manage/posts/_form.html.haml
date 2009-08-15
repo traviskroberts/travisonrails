@@ -9,6 +9,9 @@
     %br/
     = f.date_select :date, :order => [:month, :day, :year]
   %p
+    = f.check_box :featured
+    %label{:for => 'post_featured'} Featured
+  %p
     %label{:for => 'post_content'} Content
     %br/
     = f.text_area :content, :size => '35x10', :class => 'formfield'

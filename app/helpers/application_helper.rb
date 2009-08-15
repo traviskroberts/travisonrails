@@ -2,7 +2,7 @@
 module ApplicationHelper
   def strip_chars(string='')
 	  return '' if string.blank?
-    string.gsub(' ','-').gsub(/[^a-z0-9\-]+/i, '')
+    string.gsub(/\s+/,'-').gsub(/[^a-z0-9\-]+/i, '').gsub(/[\-]+/,'-')
 	end
 	
 	def show_tags(object=nil)
