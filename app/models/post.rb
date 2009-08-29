@@ -3,7 +3,7 @@ class Post < ActiveRecord::Base
   
   has_and_belongs_to_many :tags
   has_many :comments, :dependent => :destroy
-  has_many :approved_comments, :class_name => 'Comment', :conditions => ["approved = ?", true], :order => 'created_at DESC'
+  has_many :approved_comments, :class_name => 'Comment', :conditions => ["approved = ?", true], :order => 'created_at'
   
   named_scope :featured, :conditions => ["featured = ?", true], :order => 'date DESC'
 	
