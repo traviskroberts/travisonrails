@@ -25,7 +25,12 @@ h2 {
 	color:#666;
 }
 
-p, ol, ul, td { font:normal 0.75em/130% helvetica, arial, tahoma, sans-serif; }
+p, ol, ul, td {
+  font-family:HelveticaNeue-Light, 'Helvetica Neue Light', HelveticaNeue, 'Helvetica Neue', Helvetica, Calibri, sans-serif;
+  font-size:16px;
+  line-height:130%;
+/*  font:normal 14px/130% helvetica, arial, tahoma, sans-serif;*/
+}
 p { padding:0 0 10px 0; margin:0; color:#333; }
 
 a { color:#369; text-decoration:underline; padding:1px; }
@@ -42,10 +47,10 @@ th { border-bottom:1px solid #000; }
 tr:hover { background-color:#EEE; }
 
 kbd {
-	font-size:1.1em;
+	font-size:16px;
 	font-family:courier;
 	padding:1px;
-	background:#E9E9E9;
+	background-color:#CCC;
 	color:#2D2D2D;
 }
 
@@ -68,7 +73,7 @@ pre { overflow:auto; margin:0; }
 #message p { padding:0; }
 
 #blog { width:530px; float:left; margin-right:12px; }
-#blog ul, #blog ol, #blog p { color:#333; font-size:14px; }
+#blog ul, #blog ol, #blog p { color:#333; font-size:16px; }
 
 #rightCol {
 	width:240px;
@@ -114,7 +119,7 @@ pre { overflow:auto; margin:0; }
 #notice { background-color:#A4E7A0; border:1px solid #26722D; }
 #error { background-color:#F0A8A8; border:1px solid #900; }
 #notice, #error { width:90%; margin:0 auto 10px auto; padding:5px; }
-#notice p, #error p { margin-left:20px; padding:0; font-size:.75em; color:#000; }
+#notice p, #error p { margin-left:20px; padding:0; font-size:14px; color:#000; }
 #notice a, #error a { text-decoration:none; padding:0 3px; }
 #notice a { border:1px solid #26722D; color:#26722D; }
 #error a { border:1px solid #900; color:#900; }
@@ -174,9 +179,10 @@ pre { overflow:auto; margin:0; }
 .sidebox_bottom ul { padding:0 0 20px 0; margin:0; }
 .sidebox_bottom ul.popular { padding:0 0 5px 0; }
 .sidebox_bottom ul.popular li { padding:0 0 15px 0; }
-.sidebox_bottom ul li { text-align:left; font-size:13px; padding:0 0 5px 0; }
+.sidebox_bottom ul li { line-height:125%; text-align:left; font-size:14px; padding:0 0 5px 0; }
 .sidebox_bottom ul li a, .sidebox_bottom .tag_cloud a { color:#FFF; text-decoration:none; }
 .sidebox_bottom ul li a:hover, .sidebox_bottom .tag_cloud a:hover { background:transparent; text-decoration:underline; }
+.sidebox_bottom p { color:#FFF; }
 
 .infobox_top {
 	width:777px;
@@ -208,9 +214,9 @@ pre { overflow:auto; margin:0; }
 	color:#FFF !important;
 	padding:0;
 }
-.date_box p.month { font-size:12px; }
-.date_box p.day { font-size:18px; }
-.date_box p.year { font-size:12px; }
+.date_box p.month { font-size:12px !important; }
+.date_box p.day { font-size:18px !important; }
+.date_box p.year { font-size:12px !important; }
 
 .comments {
 	padding:0 0 10px 28px;
@@ -240,7 +246,7 @@ pre { overflow:auto; margin:0; }
 .title_link { color:#AB0000; text-decoration:none; }
 .title_link:hover { background-color:#AB0000; color:#FFF; }
 
-.posted { font-size:0.7em; color:#666; }
+.posted { font-size:12px; color:#666; }
 
 .tagged { color:#000 !important; font-weight:bold; }
 .tagged a { font-weight:normal; }
@@ -319,3 +325,7 @@ textarea.styled_admin_input { height:400px; width:100%; }
 	color:#999;
 }
 /************************/
+
+.dp-highlighter ol {
+  font-family:Courier;
+}
