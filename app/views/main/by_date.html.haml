@@ -22,8 +22,8 @@
           %strong=h comment.name
           said on
           = succeed ':' do
-            =h comment.date.to_formatted_s(:long)
-        %p= comment.content
+            = comment.date.to_formatted_s(:long)
+        %p=h comment.content
     
     %p Leave a comment:
     = render :partial => 'comment_form', :locals => {:id => @post.id}
