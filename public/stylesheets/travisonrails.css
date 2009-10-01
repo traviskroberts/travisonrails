@@ -198,6 +198,8 @@ pre { overflow:auto; margin:0; }
 }
 .infobox_bottom h1 { color:#4F4F4F; font-weight:bold; padding:0 0 5px 0; font-family:helvetica, arial, sans-serif; }
 
+.attendee { margin-bottom:15px; }
+
 .date_box {
 	width:47px;
 	height:48px;
