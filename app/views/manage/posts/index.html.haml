@@ -13,7 +13,8 @@
       %tr
         %th.left{:width => "30%"} Title
         %th{:width => "30%"} Date
-        %th{:width => "30%"} Comments
+        %th{:width => "25%"} Comments
+        %th{:width => "5%"} Featured?
         %th{:width => "5%"} &nbsp;
         %th{:width => "5%"} &nbsp;
       - @posts.each do |post|
@@ -21,6 +22,7 @@
           %td= post.title
           %td.center= post.date.strftime("%b %d, %Y")
           %td.center= link_to('manage', comments_admin_post_path(post)) if post.comments.length > 0
+          %td.center= image_tag('featured.png', :alt => 'yes') if post.featured
           %td.edit_delete= link_to 'edit', edit_admin_post_path(post)
           %td.edit_delete.delete= link_to_remote	image_tag('trash.gif'), :url => admin_post_path(post), :method => :delete, :confirm => "Are you sure you want to delete this post?"
     %br/
