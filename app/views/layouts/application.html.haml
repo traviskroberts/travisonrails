@@ -11,9 +11,9 @@
     %link{:rel => "shortcut icon", :href => "/favicon.ico"}
     = auto_discovery_link_tag(:rss, post_rss_path(:rss))
     
-    = stylesheet_link_tag 'travisonrails', 'SyntaxHighlighter'
+    = stylesheet_link_tag 'travisonrails', 'shCore', 'shThemeDefault'
     = javascript_include_tag :defaults
-    = javascript_include_tag 'syntax_highlighter/shCore', 'syntax_highlighter/shBrushRuby', 'syntax_highlighter/shBrushCss', 'syntax_highlighter/shBrushXml.js', 'syntax_highlighter/shBrushJScript.js'
+    = javascript_include_tag 'syntax_highlighter/shCore', 'syntax_highlighter/shBrushBash', 'syntax_highlighter/shBrushCss', 'syntax_highlighter/shBrushJScript.js', 'syntax_highlighter/shBrushPhp.js', 'syntax_highlighter/shBrushRuby', 'syntax_highlighter/shBrushXml'
     
     /[if lt IE 7]
       %script{:type => "text/javascript", :src => "/javascripts/IE7.js"}
@@ -25,7 +25,7 @@
         .pagination a, .pagination a:hover
           border: none
   
-  %body{:onload => "setup_syntax_highlighting()"}
+  %body
     #header
       = link_to '', paged_home_path(:page => 1), :class => 'logolink'
     
@@ -108,3 +108,6 @@
     :javascript
       _uacct = "UA-2032096-1";
       urchinTracker();
+      SyntaxHighlighter.defaults['wrap-lines'] = false;
+      SyntaxHighlighter.defaults['tab-size'] = 2;
+      SyntaxHighlighter.all();

@@ -1,14 +1,12 @@
-.blog_box_top
 .blog_box
   %h1= link_to post.title, date_path(:year => post.date.year, :month => post.date.strftime("%m"), :day => post.date.strftime("%d"), :slug => post.slug), :class => "title_link"
-  
+
   .date_box
     %p.month= post.date.strftime("%b").upcase
     %p.day= post.date.strftime("%d")
     %p.year= post.date.strftime("%Y")
-  
+
   %p.posted= link_to pluralize(post.approved_comments.length, 'comment'), date_path(	:year => post.date.year, :month => post.date.strftime("%m"), :day => post.date.strftime("%d"), :slug => post.slug), :class => "comments"
-  
+
   = post.content
   = show_tags(post)
-.blog_box_bottom
