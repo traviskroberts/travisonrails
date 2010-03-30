@@ -10,12 +10,12 @@ ActionController::Routing::Routes.draw do |map|
     m.old_rss 'feed/posts', :action => 'old_rss'
     m.post_rss 'feed/posts.:format', :action => 'feed'
     m.date ':year/:month/:day/:slug', :action => "by_date",
-						:requirements => { :year => /(19|20)\d\d/, :month => /[01]?\d/, :day => /[0-3]?\d/},
-						:day => nil, :month => nil, :slug => nil
-		m.tagged 'posts/tagged-with/:name/:page', :action => 'tagged', :requirements => {:page => /\d+/}, :page => nil
-		m.category 'category/:name', :action => 'category'
-		m.posts 'posts', :action => 'posts'
-		m.feed 'feed', :action => 'old_rss'
+            :requirements => { :year => /(19|20)\d\d/, :month => /[01]?\d/, :day => /[0-3]?\d/},
+            :day => nil, :month => nil, :slug => nil
+    m.tagged 'posts/tagged-with/:name/:page', :action => 'tagged', :requirements => {:page => /\d+/}, :page => nil
+    m.category 'category/:name', :action => 'category'
+    m.posts 'posts', :action => 'posts'
+    m.feed 'feed', :action => 'old_rss'
   end
   
   map.connect 'manage/site', :controller => 'manage/posts', :action => 'login'
