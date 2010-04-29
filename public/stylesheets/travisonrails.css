@@ -26,7 +26,7 @@ h2 {
 }
 
 p, ol, ul, td {
-  font-family:HelveticaNeue-Light, 'Helvetica Neue Light', HelveticaNeue, 'Helvetica Neue', Helvetica, Calibri, sans-serif;
+  font-family:'HelveticaNeue-Light', 'Helvetica Neue Light', 'HelveticaNeue', 'Helvetica Neue', 'Helvetica', 'Calibri', sans-serif;
   font-size:16px;
   line-height:130%;
 /*  font:normal 14px/130% helvetica, arial, tahoma, sans-serif;*/
@@ -252,8 +252,8 @@ pre { overflow:auto; margin:0; }
   left:-25px;
 }
   
-.title_link { color:#AB0000; text-decoration:none; }
-.title_link:hover { background-color:#AB0000; color:#FFF; }
+.title_link { background-color:#fff; color:#ab0000; text-decoration:none; -webkit-transition:color 0.3s ease; -webkit-transition:background-color 0.3s ease; }
+.title_link:hover { background-color:#ab0000; color:#fff; }
 
 .posted { font-size:12px; color:#666; }
 
