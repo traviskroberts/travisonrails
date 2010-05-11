@@ -55,11 +55,12 @@
           .main_m
             .c
               #actual_content
-                = render :partial => "shared/notice_div"
+                
                 = yield
         
           .ftr
             .c
       - else
+        = render :partial => "shared/notice_div"
         = yield
       .clear

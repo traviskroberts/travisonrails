@@ -7,7 +7,7 @@ class Post < ActiveRecord::Base
   
   named_scope :featured, :conditions => ["featured = ?", true], :order => 'date DESC'
   
-  validates_presence_of :content, :title
+  validates_presence_of :content, :title, :date
   
   def comment_count
     "#{self.approved_comments.count} Comments"

@@ -1,14 +1,14 @@
 class Manage::PostsController < ApplicationController
   layout 'admin'
-	before_filter :check_authentication, :except => [:login, :signin]
-	
-	cache_sweeper :site_sweeper, :only => [:create, :update, :destroy, :delete_comment, :approve]
-	
-	def login
-	  redirect_to admin_posts_path unless session[:user].nil?
-	end
-	
-	def signin
+  before_filter :check_authentication, :except => [:login, :signin]
+  
+  cache_sweeper :site_sweeper, :only => [:create, :update, :destroy, :delete_comment, :approve]
+  
+  def login
+    redirect_to admin_posts_path unless session[:user].nil?
+  end
+  
+  def signin
     session[:user] = User.authenticate(params[:username],params[:password]).id
     redirect_to admin_posts_path
   rescue Exception => ex
@@ -157,6 +157,6 @@ class Manage::PostsController < ApplicationController
   
   private
   def check_authentication
-		redirect_to :action => 'login' unless session[:user]
-	end
+    redirect_to :action => 'login' unless session[:user]
+  end
 end
