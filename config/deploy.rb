@@ -56,6 +56,9 @@ namespace :deploy do
   desc "Symlink database config file."
   task :symlink_db do
     run "ln -nfs #{shared_path}/system/database.yml #{release_path}/config/database.yml"
+    
+    # also need to symlink carpguy folder :)
+    run "ln -nfs #{shared_path}/system/carpguy #{release_path}/public/carpguy"
   end
 end
  
