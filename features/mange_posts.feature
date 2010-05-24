@@ -25,3 +25,11 @@ Feature: Manage Posts
     Then I should not see "Test2"
     And I should see "Test1"
     And I should see "Test3"
+  
+  Scenario: Try to create an invalid post
+    Given I am logged in
+    When I go to new posts page
+    And I press "Create Blog Post"
+    Then I should see "There were problems with the following fields"
+    And I should see "Title can't be blank"
+    And I should see "Content can't be blank"

@@ -18,6 +18,8 @@ module NavigationHelpers
     #     user_profile_path(User.find_by_login($1))
     when /the list of posts/
       admin_posts_path
+    when /new posts page/
+      new_admin_post_path
     
     else
       begin
