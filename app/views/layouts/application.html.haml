@@ -1,5 +1,5 @@
-!!! Strict
-%html{html_attrs}
+<!DOCTYPE html>
+%html
   %head
     %title= @page_title ||= 'Travis On Rails - Ruby on Rails, Code Samples, Ruby Tutorials, Rails Tutorials, XHTML, CSS'
     
@@ -38,42 +38,30 @@
           = yield
         
         #rightCol
-          .sidebox_top
-          .sidebox_bottom
+          .sidebox
             %h2.popular Popular Posts
             - if !@popular_posts.blank?
               %ul.popular
                 - @popular_posts.each do |post|
                   %li= link_to post.title, date_path(	:year => post.date.year, :month => post.date.strftime("%m"), :day => post.date.strftime("%d"), :slug => post.slug)
           
-          .sidebox_top
-          .sidebox_bottom
-            %h2.archives Archives
+          .sidebox
+            %h2 Search
+            - form_tag(home_path) do
+              = text_field_tag :search, params[:search]
+              = submit_tag 'Search'
+          
+          .sidebox
+            %h2 Archives
             %ul
               - if @links and @links.length > 0
                 - @links.each do |link|
                   %li= link_to link[0], "/#{link[1]}"
               %li= link_to "Current Posts", paged_home_path(:page => 1)
           
-          .sidebox_top
-          .sidebox_bottom
-            %h2.tags Tags
+          .sidebox
+            %h2 Tags
             = render :partial => "shared/tag_cloud"
-          
-          .sidebox_top
-          .sidebox_bottom
-            %h2.links Links
-            %ul
-              %li= link_to "This is What You're Doing Wrong", 'http://thisiswhatyouredoingwrong.com', :popup => true
-              %li= link_to 'Listode', 'http://listode.com', :popup => true
-              %li= link_to 'Twitter', 'http://twitter.com/travisroberts', :popup => true
-              %li= link_to 'GitHub', 'http://github.com/travisr', :popup => true
-              %li= link_to 'Flickr', 'http://flickr.com/photos/travisroberts', :popup => true
-              %li= link_to 'Plexus Web Creations', 'http://plexusweb.com', :popup => true
-              %li= link_to 'Veader', 'http://codemonky.com', :popup => true
-              %li= link_to 'Colin Jones, Trumpet', 'http://trumpetperformance.com', :popup => true
-              %li= link_to 'Andrew Reifman Graphic Design', 'http://andrewreifman.com', :popup => true
-              %li= mail_to 'traviskroberts@gmail.com', 'Contact Me', :encode => 'javascript'
 
           %h2 Projects
           =link_to image_tag('listode_logo-trans.png', :alt => 'Listode'), "http://listode.com", :class => "no_hover"
@@ -81,16 +69,6 @@
         
         .clear
         %br/
-        
-        %p.valid_links
-          %a{:href => "http://validator.w3.org/check/referer"}
-            %img{:src => "/images/xhtml.gif", :alt => "[Valid XHTML]", :title => "Validate this page for XHTML"}
-          %a{:href => "http://jigsaw.w3.org/css-validator/check/referer"}
-            %img{:src => "/images/css.gif", :alt => "[Valid CSS]", :title => "Validate this page for CSS"}
-          %a{:href => "http://www.feedvalidator.org/check.cgi?url=http%3A//www.travisonrails.com/feed/posts.rss"}
-            %img{:src => "/images/rss.gif", :alt => "[Valid RSS]", :title => "Validate the RSS feed"}
-          %a{:href => "http://www.rubyonrails.com"}
-            %img{:src => "/images/rails_icon.gif", :alt => "[Rails Powered]", :title => "Built with Ruby on Rails"}
         
         %p.center
           &copy;

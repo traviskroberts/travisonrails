@@ -14,7 +14,8 @@
   
     = show_tags(@post)
     %br/
-  
+    
+    %a{:name => 'comments'}
     - @post.approved_comments.each do |comment|
       .comment
         %p.author

@@ -6,7 +6,7 @@
     %p.day= post.date.strftime("%d")
     %p.year= post.date.strftime("%Y")
 
-  %p.posted= link_to pluralize(post.approved_comments.length, 'comment'), date_path(	:year => post.date.year, :month => post.date.strftime("%m"), :day => post.date.strftime("%d"), :slug => post.slug), :class => "comments"
+  %p.posted= link_to pluralize(post.approved_comments.length, 'comment'), date_path(:year => post.date.year, :month => post.date.strftime("%m"), :day => post.date.strftime("%d"), :slug => post.slug) + '#comments', :class => "comments"
 
   = post.content
   = show_tags(post)
