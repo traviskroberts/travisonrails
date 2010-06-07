@@ -199,7 +199,7 @@ pre { overflow:auto; margin:0; }
 .sidebox ul.popular { padding:0 0 5px 0; }
 .sidebox ul.popular li { padding:0 0 15px 0; }
 .sidebox ul li { line-height:125%; text-align:left; font-size:14px; padding:0 0 5px 0; }
-.sidebox ul li a, .sidebox .tag_cloud a { color:#FFF; text-decoration:none; text-shadow:1px 1px #666; }
+.sidebox ul li a, .sidebox .tag_cloud a { color:#FFF; text-decoration:none; text-shadow:1px 1px #1c0505; }
 .sidebox ul li a:hover, .sidebox .tag_cloud a:hover { background:transparent; text-decoration:underline; }
 .sidebox p { color:#FFF; }
 .sidebox form { padding:0 0 20px 0; }
