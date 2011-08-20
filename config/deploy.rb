@@ -27,7 +27,6 @@ set :rails_env, "production"
 role :web, domain
 role :app, domain
 role :db,  domain, :primary => true
-role :scm, domain
 
 # =============================================================================
 # APPLICATION SERVER OPTIONS

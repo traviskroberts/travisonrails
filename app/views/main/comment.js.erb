@@ -1,0 +1,9 @@
+if @saved
+  page.replace_html 'comment_notice', 'Your comment has been submitted and is awaiting approval.'
+  page.show 'comment_notice'
+  page.hide 'comment_form'
+  page['form_for_comment'].reset # reset the form
+else
+  page.replace_html 'comment_error', 'Comment could not be recorded.'
+  page.show 'comment_error'
+end

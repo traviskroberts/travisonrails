@@ -5,3 +5,4 @@ log/*
 tmp/*
 # Ignore the database.yml file so no one can get into my db
 config/database.yml
+.rvmrc

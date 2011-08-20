@@ -1,0 +1,19 @@
+<%- if !@tag.blank? -%>
+  <%- @page_title = "Travis on Rails - Posts Tagged with \"#{@tag.name}\"" -%>
+  <%- content_for :infobox do -%>
+    <div class="infobox_top"></div>
+    <div class="infobox_bottom">
+      <h1>Posts Tagged with "<%= @tag.name %>"</h1>
+    </div> <!-- infobox_bottom -->
+  <%- end -%>
+
+  <%- if !@posts.blank? -%>
+    <%= render :partial => 'post', :collection => @posts, :as => :post %>
+    <%= will_paginate @posts %>
+  <%- else -%>
+    <p>There are no posts at this time.</p>
+  <%- end -%>
+<%- else -%>
+  <h1>Posts by Tag</h1>
+  <p>There are no posts for that tag.</p>
+<%- end -%>

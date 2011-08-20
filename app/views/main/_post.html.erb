@@ -1,0 +1,14 @@
+<div class="blog_box">
+  <h1><%= link_to post.title, date_path(:year => post.date.year, :month => post.date.strftime("%m"), :day => post.date.strftime("%d"), :slug => post.slug), :class => "title_link" %></h1>
+
+  <div class="date_box">
+    <p class="month"><%= post.date.strftime("%b").upcase %></p>
+    <p class="day"><%= post.date.strftime("%d") %></p>
+    <p class="year"><%= post.date.strftime("%Y") %></p>
+  </div> <!-- date_box -->
+
+  <p class="posted"><%= link_to "Comments", date_path(:year => post.date.year, :month => post.date.strftime("%m"), :day => post.date.strftime("%d"), :slug => post.slug) + '#disqus_thread', :class => "comments", 'data-disqus-identifier' => "disqus_post_#{post.id}" %></p>
+
+  <%=raw post.content %>
+  <%=raw show_tags(post) %>
+</div> <!-- .blog_box -->

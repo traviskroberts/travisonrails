@@ -1,0 +1,18 @@
+<%- if !@tags.blank? -%>
+  <%-
+    tag_vals = []
+    @tags.each do |tag|
+      amt = tag.posts.length
+      ratio = ((amt.to_f / @item_count.to_f) * 100).to_i
+      tag_vals << [tag.name, amt, ratio] unless amt==0
+    end
+    tag_vals.sort!
+  -%>
+  <p class="tag_cloud">
+    <%- tag_vals.each do |val| -%>
+      <%= link_to val[0], tagged_path(:name => strip_chars(val[0]), :page => nil), :class => tag_class(val[2]) %>
+    <%- end -%>
+  </p>
+<%- else -%>
+  <p>There are no tags at this time.</p>
+<%- end -%>

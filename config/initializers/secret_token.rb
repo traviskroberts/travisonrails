@@ -1,0 +1,2 @@
+# Be sure to restart your server when you modify this file.
+Travisonrails::Application.config.secret_token = 'f86e2caddcb0bbf344435a7db661ae20d123bac80af804581c8919a7d7f2dbbdc7d9290dc71099cd740267555475edd4b23548c6eae2b6a06f3922e2d6a4fef5'

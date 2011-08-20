@@ -1,33 +1,35 @@
-ActionController::Routing::Routes.draw do |map|
-  # The priority is based upon order of creation: first created -> highest priority.
+Travisonrails::Application.routes.draw do
+  match '' => 'main#index', :as => :home
+  match 'index(/:page)' => 'main#index', :as => :paged_home, :constraints => { :page => /\d+/ }
 
-  # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
-  # map.root :controller => "welcome"
-  
-  map.with_options :controller => 'main' do |m|
-    m.home '', :action => 'index'
-    m.paged_home 'index/:page', :action => 'index', :requirements => {:page => /\d+/}, :page => nil
-    m.old_rss 'feed/posts', :action => 'old_rss'
-    m.post_rss 'feed/posts.:format', :action => 'feed'
-    m.date ':year/:month/:day/:slug', :action => "by_date",
-            :requirements => { :year => /(19|20)\d\d/, :month => /[01]?\d/, :day => /[0-3]?\d/},
-            :day => nil, :month => nil, :slug => nil
-    m.tagged 'posts/tagged-with/:name/:page', :action => 'tagged', :requirements => {:page => /\d+/}, :page => nil
-    m.category 'category/:name', :action => 'category'
-    m.posts 'posts', :action => 'posts'
-    m.feed 'feed', :action => 'old_rss'
+  match 'feed/posts' => 'main#old_rss', :as => :old_rss
+  match 'feed/posts.:format' => 'main#feed', :as => :post_rss
+
+  match ':year(/:month(/:day(/:slug)))' => 'main#by_date', :as => :date, :constraints => { :year => /(19|20)\d\d/, :month => /[01]?\d/, :day => /[0-3]?\d/ }
+  match 'posts/tagged-with/:name(/:page)' => 'main#tagged', :as => :tagged, :constraints => { :page => /\d+/ }
+  match 'category/:name' => 'main#category', :as => :category
+  match 'posts' => 'main#posts', :as => :posts
+  match 'feed' => 'main#old_rss', :as => :feed
+
+  resources :blog_posts
+
+  namespace :admin do
+    match '' => 'manage/posts#login'
+
+    resources :posts do
+      collection do
+        get :login
+        get :logout
+        post :signin
+        post :search
+      end
+      member do
+        get :comments
+        delete :delete_comment
+        put :approve
+      end
+    end
   end
   
-  map.connect 'manage/site', :controller => 'manage/posts', :action => 'login'
-  
-  map.resources :posts,
-                :path_prefix => '/manage',
-                :name_prefix => 'admin_',
-                :controller => 'manage/posts',
-                :member => {:comments => :get, :delete_comment => :delete, :approve => :put},
-                :collection => {:login => :get, :logout => :get, :signin => :post, :search => :post}
-
-  # Install the default routes as the lowest priority.
-  map.connect ':controller/:action/:id'
-  map.connect ':controller/:action/:id.:format'
+  match 'comment/export.:format' => 'main#comment_export'
 end
