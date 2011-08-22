@@ -16,14 +16,6 @@
 
     <br />
 
-    <a name="comments"></a>
-    <%- @post.approved_comments.each do |comment| -%>
-      <div class="comment">
-        <p class="author"><strong><%= comment.name %></strong> said on <%= comment.date.to_formatted_s(:long) %>:</p>
-        <p><%= comment.content %></p>
-      </div> <!-- .comment -->
-    <%- end -%>
-
     <%= render 'disqus', :post => @post %>
   </div> <!-- .blog_box -->
 <%- else -%>
