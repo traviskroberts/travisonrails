@@ -1,7 +1,7 @@
 class MainController < ApplicationController
   before_filter :build_archive_links, :get_tags, :get_popular_posts
 
-  caches_page :index, :tagged, :by_date, :feed
+  # caches_page :index, :tagged, :by_date, :feed
 
   def index
     if request.post?
