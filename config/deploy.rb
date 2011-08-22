@@ -46,4 +46,4 @@ namespace :deploy do
 end
 
 after 'deploy:update_code', 'deploy:symlink_db'
-after 'deploy:symlink', 'deploy:cleanup'
+after 'deploy:restart', 'deploy:cleanup'
