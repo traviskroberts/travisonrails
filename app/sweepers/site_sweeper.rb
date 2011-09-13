@@ -1,14 +1,14 @@
 class SiteSweeper < ActionController::Caching::Sweeper
-  observe Post, Comment
+  observe Post
 
   def after_save(record)
     self.class::sweep
   end
-  
+
   def after_destroy(record)
     self.class::sweep
   end
-  
+
   def self.sweep
     cache_dir = ActionController::Base.page_cache_directory
     unless cache_dir == RAILS_ROOT+"/public"

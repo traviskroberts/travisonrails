@@ -8,14 +8,6 @@
     <%= yield :header %>
 
     <meta content='text/html; charset=utf-8' http-equiv='Content-Type' />
-    <meta content='TRUE' name='MSSmartTagsPreventParsing' />
-    <meta content='' name='keywords' />
-    <meta content='' name='description' />
-    <meta content='General' name='rating' />
-    <meta content='EN-US' name='MS.LOCALE' />
-    <meta content='index,follow' name='robots' />
-    <meta content='http://www.travisonrails.com' name='URL' />
-    <meta content='Travis Roberts' name='author' />
     <!--[if lt IE 7]>
       <style type="text/css">
         #content, #header { width: 880px; }
@@ -27,10 +19,8 @@
   <body>
     <div id="header">
       <p id="login">
-        <%- if session[:user] -%>
-          Logged in as: <%= @logged_in_email %>
-          &nbsp;|&nbsp;
-          <%= link_to 'Sign-out', { :controller => '/manage/posts', :action => 'logout' } %>
+        <%- if current_user -%>
+          <%= link_to 'Sign-out', logout_admin_posts_path %>
         <%- end -%>
       </p>
 
@@ -39,14 +29,14 @@
       <ul class="nav">
         <li class="active">
           <span class="left_edge"></span>
-          <%= link_to "Site Content", :controller => '/manage/posts', :action => 'index' %>
+          <%= link_to "Site Content", admin_posts_path %>
           <span class="right_edge"></span>
         </li>
       </ul>
     </div> <!-- #header -->
 
     <div id="content">
-      <%- if session[:user] -%>
+      <%- if current_user -%>
         <div id="manageNav">
           <ul>
             <li><%= link_to 'Manage Posts', admin_posts_path %></li>

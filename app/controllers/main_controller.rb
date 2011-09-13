@@ -1,13 +1,13 @@
 class MainController < ApplicationController
-  before_filter :build_archive_links, :get_tags, :get_popular_posts
+  before_filter :build_archive_links, :get_tags
 
   # caches_page :index, :tagged, :by_date, :feed
 
   def index
     if request.post?
-      @posts = Post.where("title LIKE ?", "%#{params[:search]}%").order('posts.date DESC').includes(:approved_comments, :tags).paginate(:page => params[:page], :per_page => 5)
+      @posts = Post.where("title LIKE ?", "%#{params[:search]}%").order('posts.date DESC').includes(:tags).paginate(:page => params[:page], :per_page => 5)
     else
-      @posts = Post.order('posts.date DESC').includes(:approved_comments, :tags).paginate(:page => params[:page], :per_page => 5)
+      @posts = Post.order('posts.date DESC').includes(:tags).paginate(:page => params[:page], :per_page => 5)
     end
   rescue Exception => ex
     logger.warn("ERROR: " + ex.message)
@@ -29,15 +29,11 @@ class MainController < ApplicationController
     if params[:slug]
       @post = Post.where("slug = ?", params[:slug]).first
     else
-      @posts = Post.where("posts.date LIKE ?", "#{@query}%").order('posts.date').includes(:approved_comments, :tags)
+      @posts = Post.where("posts.date LIKE ?", "#{@query}%").order('posts.date').includes(:tags)
     end
   rescue Exception => ex
     logger.warn("ERROR: " + ex.message)
     flash.now[:error] = 'There was an error getting the requested post(s).'
-  end
-
-  def comment_export
-    @posts = Post.order('date DESC').includes(:approved_comments).all
   end
 
   def tagged
@@ -70,10 +66,6 @@ class MainController < ApplicationController
   end
 
   private
-
-    def get_popular_posts
-     @popular_posts = Post.featured.find(:all, :limit => 5)
-    end
 
     def build_date(date)
       if date.month.to_s.length == 1

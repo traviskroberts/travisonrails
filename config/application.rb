@@ -19,7 +19,7 @@ module Travisonrails
     config.action_controller.page_cache_directory = Rails.root + "/public/cache/"
 
     # JavaScript files you want as :defaults (application.js is always included).
-    config.action_view.javascript_expansions[:defaults] = %w(jquery-1.6.2.min)
+    config.action_view.javascript_expansions[:defaults] = %w(jquery-1.6.2.min jquery_ujs placeholder syntax_highlighter/shCore syntax_highlighter/shBrushBash syntax_highlighter/shBrushCss syntax_highlighter/shBrushJScript syntax_highlighter/shBrushPhp syntax_highlighter/shBrushRuby syntax_highlighter/shBrushXml)
 
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"

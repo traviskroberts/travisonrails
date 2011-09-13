@@ -1,0 +1,21 @@
+<div id="loginbox">
+  <h3>Sign-in</h3>
+
+  <div id="login_form">
+    <% form_for :user_session, :url => signin_admin_posts_path do |f| %>
+      <%= f.error_messages %>
+
+      <p>
+        <%= f.label :email, "Email Address" %><br />
+        <%= f.text_field :email, :class => 'formfield' %>
+      </p>
+
+      <p>
+        <%= f.label :password, "Password" %><br />
+        <%= f.password_field :password, :class => 'formfield' %>
+      </p>
+
+      <%= image_submit_tag 'btn_signin.gif', :alt => 'Login' %>
+    <% end %>
+  </div>
+</div>

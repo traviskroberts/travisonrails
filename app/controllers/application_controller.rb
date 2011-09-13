@@ -2,6 +2,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   helper :all # include all helpers, all the time
 
+  helper_method :current_user
+
   # --------------------------------------------------------------------
   protected
     def handle_tags(params='')
@@ -26,5 +28,15 @@ class ApplicationController < ActionController::Base
     def get_tags(object)
       return '' if object.nil?
       @tags = object.tags.collect { |t| t.name }
+    end
+  
+  private
+    def current_user_session
+      return @current_user_session if defined?(@current_user_session)
+      @current_user_session = UserSession.find
+    end
+
+    def current_user
+      @current_user = current_user_session && current_user_session.record
     end
 end

@@ -1,0 +1,41 @@
+<%= link_to image_tag('btn_add_blog_post.gif', :alt => '+ Add Blog Post'), new_admin_post_path, :class => 'add_button' %>
+<h1>Blog Posts</h1>
+
+<div class="search_form">
+  <h3>Search</h3>
+  <%= form_tag(:action => "search") do %>
+    <%= text_field_tag "query", "", :class => "search_query" %>
+    <%= submit_tag "Submit" %>
+  <% end -%>
+</div>
+
+<div id="information">
+  <%- if @posts and @posts.length > 0 -%>
+    <table>
+      <thead>
+        <tr>
+          <th class="left" width="60%">Title</th>
+          <th width="20%">Date</th>
+          <th width="20%">&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%- @posts.each do |post| -%>
+          <tr id="<%= dom_id(post) %>">
+            <td><%= post.title %></td>
+            <td><%= post.date.strftime("%b %d, %Y") %></td>
+            <td>
+              <%= link_to 'edit', edit_admin_post_path(post) %>
+              &nbsp;|&nbsp;
+              <%= link_to 'delete', admin_post_path(post), :method => :delete, :confirm => "Are you sure?" %>
+            </td>
+          </tr>
+        <%- end -%>
+      </tbody>
+    </table>
+    <br />
+    <%= will_paginate @posts %>
+  <%- else -%>
+    <p>No posts were found in the database.</p>
+  <%- end -%>
+</div>
