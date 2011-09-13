@@ -14,7 +14,7 @@ Travisonrails::Application.routes.draw do
   resources :blog_posts
 
   namespace :admin do
-    match '' => 'manage/posts#login'
+    match '' => 'posts#login'
 
     resources :posts do
       collection do
@@ -24,12 +24,8 @@ Travisonrails::Application.routes.draw do
         post :search
       end
       member do
-        get :comments
-        delete :delete_comment
         put :approve
       end
     end
   end
-  
-  match 'comment/export.:format' => 'main#comment_export'
 end

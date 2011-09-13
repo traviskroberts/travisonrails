@@ -1,23 +1,17 @@
 <%- if !@posts.blank? -%>
-  <%= render 'post', :collection => @posts %>
+  <%= render :partial => 'post', :collection => @posts %>
 <%- elsif !@post.blank? -%>
-  <div class="blog_box">
-    <%- @page_title = "Travis on Rails &raquo; #{@post.title}" -%>
-    <h1><%= @post.title %></h1>
+  <%- @page_title = "Travis on Rails &raquo; #{@post.title}".html_safe -%>
+  <h1><%= @post.title %></h1>
 
-    <div class="date_box">
-      <p class="month"><%= @post.date.strftime("%b").upcase %></p>
-      <p class="day"><%= @post.date.strftime("%d") %></p>
-      <p class="year"><%= @post.date.strftime("%Y") %></p>
-    </div> <!-- .date_box -->
+  <p class="posted"><%= @post.date.strftime("%b %d, %Y") %></p>
 
-    <%=raw @post.content %>
-    <%=raw show_tags(@post) %>
+  <%=raw @post.content %>
+  <%=raw show_tags(@post) %>
 
-    <br />
+  <br />
 
-    <%= render 'disqus', :post => @post %>
-  </div> <!-- .blog_box -->
+  <%= render 'disqus', :post => @post %>
 <%- else -%>
   <p>There are no posts for this date.</p>
 <%- end -%>

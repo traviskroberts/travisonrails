@@ -1,0 +1,14 @@
+<p class="cancel_top"><%= link_to 'Cancel', admin_posts_path, :class => 'cancel' %></p>
+<h3>Edit Blog Post</h3>
+
+<div class="formCluster">
+  <%= form_for :post, :url => admin_post_path(@post), :html => {:method => 'put'} do |f| %>
+    <%= render :partial => 'form', :locals => {:f => f} %>
+
+    <p>
+      <%= submit_tag 'Update Blog Post', :class => 'greyButton' %>
+      &nbsp; or
+      <%= link_to 'Cancel', admin_posts_path, :class => 'cancel' %>
+    </p>
+  <% end -%>
+</div>

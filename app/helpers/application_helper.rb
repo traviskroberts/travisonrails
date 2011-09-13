@@ -11,7 +11,6 @@ module ApplicationHelper
       output << '<p class="tagged">Tagged: '
       object.tags.each do |tag|
         output << link_to(tag.name, tagged_path(:name => strip_chars(tag.name), :page => nil))
-        output << ', ' unless object.tags.last==tag
       end
       output << '</p>'
     end

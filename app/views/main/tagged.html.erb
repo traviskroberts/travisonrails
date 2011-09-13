@@ -1,10 +1,7 @@
 <%- if !@tag.blank? -%>
-  <%- @page_title = "Travis on Rails - Posts Tagged with \"#{@tag.name}\"" -%>
+  <%- @page_title = "Travis on Rails - Posts Tagged with \"#{@tag.name}\"".html_safe -%>
   <%- content_for :infobox do -%>
-    <div class="infobox_top"></div>
-    <div class="infobox_bottom">
-      <h1>Posts Tagged with "<%= @tag.name %>"</h1>
-    </div> <!-- infobox_bottom -->
+    <h1>Posts Tagged with "<%= @tag.name %>"</h1>
   <%- end -%>
 
   <%- if !@posts.blank? -%>
