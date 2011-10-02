@@ -90,6 +90,10 @@ img {
   border: 0;
   -ms-interpolation-mode: bicubic;
 }
+kbd {
+  background-color:#E8E8E8;
+  padding:0 3px;
+}
 button,
 input,
 select,
@@ -497,7 +501,7 @@ ol {
 }
 li {
   color: #333;
-  font-size:14px;
+  font-size:18px;
   line-height:150%;
 }
 article li { font-size:18px; }
