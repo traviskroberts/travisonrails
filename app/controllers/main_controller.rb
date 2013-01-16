@@ -53,10 +53,6 @@ class MainController < ApplicationController
   end
 
   # routes to fix old links
-  def old_rss
-    redirect_to post_rss_path(:rss)
-  end
-
   def category
     redirect_to tagged_path(:name => params[:name])
   end

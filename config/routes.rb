@@ -2,7 +2,6 @@ Travisonrails::Application.routes.draw do
   match '' => 'main#index', :as => :home
   match 'index(/:page)' => 'main#index', :as => :paged_home, :constraints => { :page => /\d+/ }
 
-  match 'feed/posts' => 'main#old_rss', :as => :old_rss
   match 'feed/posts.:format' => 'main#feed', :as => :post_rss
 
   match ':year(/:month(/:day(/:slug)))' => 'main#by_date', :as => :date, :constraints => { :year => /(19|20)\d\d/, :month => /[01]?\d/, :day => /[0-3]?\d/ }
