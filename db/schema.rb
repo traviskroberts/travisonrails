@@ -13,25 +13,12 @@
 
 ActiveRecord::Schema.define(:version => 20100607183320) do
 
-  create_table "comments", :force => true do |t|
-    t.integer  "post_id"
-    t.date     "date"
-    t.string   "name"
-    t.text     "content"
-    t.boolean  "approved",   :default => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "comments", ["post_id"], :name => "index_comments_on_post_id"
-
   create_table "posts", :force => true do |t|
     t.string   "title"
     t.text     "content"
     t.date     "date"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "featured",   :default => false
     t.string   "slug"
   end
 
