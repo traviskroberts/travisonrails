@@ -1,8 +1,9 @@
 # Ignore the log files
 log/*
-# 
+#
 # Ignore the tmp files (if any)
 tmp/*
 # Ignore the database.yml file so no one can get into my db
 config/database.yml
+config/deploy.rb
 .rvmrc
