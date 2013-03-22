@@ -2,10 +2,8 @@ class Admin::PostsController < ApplicationController
   layout 'admin'
   before_filter :check_authentication, :except => [:login, :signin]
 
-  cache_sweeper :site_sweeper, :only => [:create, :update, :destroy, :approve]
-
   def login
-    redirect_to admin_posts_path if current_user
+    redirect_to admin_posts_url if current_user
     @user_session = UserSession.new
   end
 
@@ -13,7 +11,7 @@ class Admin::PostsController < ApplicationController
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
       flash[:notice] = "Successfully logged in."
-      redirect_to admin_posts_path
+      redirect_to admin_posts_url
     else
       render :action => 'login'
     end
@@ -23,7 +21,7 @@ class Admin::PostsController < ApplicationController
     @user_session = UserSession.find
     @user_session.destroy
     flash[:notice] = "Successfully logged out."
-    redirect_to admin_posts_path
+    redirect_to admin_posts_url
   end
 
   def index
@@ -121,6 +119,6 @@ class Admin::PostsController < ApplicationController
 
   private
     def check_authentication
-      redirect_to login_admin_posts_path unless current_user
+      redirect_to login_admin_posts_url unless current_user
     end
 end

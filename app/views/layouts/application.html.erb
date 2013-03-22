@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= @page_title ||= 'Travis On Rails - Ruby on Rails, Code Samples, Ruby Tutorials, Rails Tutorials, XHTML, CSS' %></title>
+    <title><%= @page_title ||= 'Travis On Rails' %></title>
 
     <meta content='text/html; charset=utf-8' http-equiv='Content-Type' />
     <meta content='Travis Roberts' name='author' />
@@ -12,8 +12,8 @@
 
     <%= auto_discovery_link_tag(:rss, post_rss_path(:rss)) %>
 
-    <%= stylesheet_link_tag 'travisonrails', 'shCore', 'shThemeDefault' %>
-    <%= javascript_include_tag :defaults %>
+    <%= stylesheet_link_tag 'application' %>
+    <%= javascript_include_tag 'application' %>
     <%= javascript_include_tag 'syntax_highlighter/shCore', 'syntax_highlighter/shBrushBash', 'syntax_highlighter/shBrushCss', 'syntax_highlighter/shBrushJScript', 'syntax_highlighter/shBrushPhp', 'syntax_highlighter/shBrushRuby', 'syntax_highlighter/shBrushXml' %>
   </head>
 
@@ -22,7 +22,7 @@
       <%= form_tag paged_home_path(:page => nil), :id => 'search-form' do %>
         <div class="input-prepend">
           <span class="add-on pictos">s</span>
-          <%= text_field_tag :search, params[:search], :class => 'medium auto-clear', :title => 'Search' %>
+          <%= text_field_tag :search, params[:search], :class => 'span2 auto-clear', :title => 'Search', :placeholder => 'Search' %>
         </div>
       <% end -%>
       <%= link_to '', paged_home_path(:page => nil), :class => 'logolink' %>

@@ -7,7 +7,7 @@ module ApplicationHelper
   def show_tags(object=nil)
     return '' if object.nil?
     output = ""
-    unless object.tags.empty?
+    if object.tags.present?
       output << '<p class="tagged">Tagged: '
       object.tags.each do |tag|
         output << link_to(tag.name, tagged_path(:name => strip_chars(tag.name), :page => nil))
@@ -17,7 +17,7 @@ module ApplicationHelper
   end
 
   def tag_class(ratio=0)
-    return '' if ratio==0
+    return '' if ratio == 0
     if (1..5).include?(ratio)
       return 'level_one'
     elsif (6..10).include?(ratio)

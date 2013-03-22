@@ -2,8 +2,8 @@
   <h3>Sign-in</h3>
 
   <div id="login_form">
-    <% form_for :user_session, :url => signin_admin_posts_path do |f| %>
-      <%= f.error_messages %>
+    <%= form_for :user_session, :url => signin_admin_posts_path do |f| %>
+      <%= render 'shared/form_errors', :object => @user_session %>
 
       <p>
         <%= f.label :email, "Email Address" %><br />
