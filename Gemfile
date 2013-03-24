@@ -21,4 +21,6 @@ group :development do
   gem 'capistrano'
   gem 'capistrano_colors'
   gem 'rvm-capistrano'
+  gem 'quiet_assets'
+  gem 'thin'
 end
