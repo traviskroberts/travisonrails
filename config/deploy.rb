@@ -29,7 +29,7 @@ role :db,  domain, :primary => true
 # SCM OPTIONS
 # =============================================================================
 set :scm, :git
-set :repository, 'git@github.com:travisr/tor_blog.git'
+set :repository, 'git@github.com:travisr/travisonrails.git'
 set :branch, :master
 
 # =============================================================================
