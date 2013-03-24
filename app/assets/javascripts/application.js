@@ -12,4 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require placeholder
+//= require syntax_highlighter/shCore
+//= require syntax_highlighter/shBrushBash
+//= require syntax_highlighter/shBrushCss
+//= require syntax_highlighter/shBrushJScript
+//= require syntax_highlighter/shBrushPhp
+//= require syntax_highlighter/shBrushRuby
+//= require syntax_highlighter/shBrushXml
 //= require_tree .
