@@ -19,7 +19,7 @@
 
   <body>
     <header>
-      <%= form_tag paged_home_path(:page => nil), :id => 'search-form' do %>
+      <%= form_tag paged_home_path(:page => nil), :method => 'get', :id => 'search-form' do %>
         <div class="input-prepend">
           <span class="add-on pictos">s</span>
           <%= text_field_tag :search, params[:search], :class => 'span2 auto-clear', :title => 'Search', :placeholder => 'Search' %>

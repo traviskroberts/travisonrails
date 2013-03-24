@@ -1,10 +1,8 @@
 class MainController < ApplicationController
   before_filter :build_archive_links, :get_tags
 
-  # caches_page :index, :tagged, :by_date, :feed
-
   def index
-    if request.post?
+    if params[:search].present?
       @posts = Post.where("title LIKE ?", "%#{params[:search]}%").order('posts.date DESC').includes(:tags).paginate(:page => params[:page], :per_page => 5)
     else
       @posts = Post.order('posts.date DESC').includes(:tags).paginate(:page => params[:page], :per_page => 5)
