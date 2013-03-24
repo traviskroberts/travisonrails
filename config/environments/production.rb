@@ -46,7 +46,7 @@ Travisonrails::Application.configure do
   # config.action_controller.asset_host = "http://assets.example.com"
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
-  config.assets.precompile += %w( syntax_highlighter/shCore, syntax_highlighter/shBrushBash, syntax_highlighter/shBrushCss, syntax_highlighter/shBrushJScript, syntax_highlighter/shBrushPhp, syntax_highlighter/shBrushRuby, syntax_highlighter/shBrushXml )
+  config.assets.precompile += %w( syntax_highlighter/shCore.js, syntax_highlighter/shBrushBash.js, syntax_highlighter/shBrushCss.js, syntax_highlighter/shBrushJScript.js, syntax_highlighter/shBrushPhp.js, syntax_highlighter/shBrushRuby.js, syntax_highlighter/shBrushXml.js )
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
