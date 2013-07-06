@@ -20,3 +20,4 @@
 
 # Production files
 config/database.yml
+.env
