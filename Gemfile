@@ -1,12 +1,12 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
-gem 'mysql2'
+gem 'pg'
 gem 'jquery-rails'
 gem 'authlogic'
 gem 'stringex'
 gem 'will_paginate'
-gem 'lograge'
+gem 'unicorn'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -18,9 +18,5 @@ end
 
 group :development do
   gem 'pry'
-  gem 'capistrano'
-  gem 'capistrano_colors'
-  gem 'rvm-capistrano'
   gem 'quiet_assets'
-  gem 'thin'
 end
