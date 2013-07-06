@@ -7,8 +7,6 @@ class MainController < ApplicationController
     else
       @posts = Post.order('posts.date DESC').includes(:tags).paginate(:page => params[:page], :per_page => 5)
     end
-
-    response.headers['Cache-Control'] = 'public, max-age=2592000' # Varnish cache - 30 days
   end
 
   def by_date
@@ -28,22 +26,16 @@ class MainController < ApplicationController
       end
       @posts = @posts.order('posts.date').includes(:tags)
     end
-
-    response.headers['Cache-Control'] = 'public, max-age=2592000' # Varnish cache - 30 days
   end
 
   def tagged
     tag_name = params[:name].gsub('-',' ')
     @tag = Tag.find_by_name(tag_name)
     @posts = @tag.posts.order('date DESC').paginate(:page => params[:page], :per_page => 5) unless @tag.nil?
-
-    response.headers['Cache-Control'] = 'public, max-age=2592000' # Varnish cache - 30 days
   end
 
   def feed
     @posts = Post.order('date DESC').limit(10)
-
-    response.headers['Cache-Control'] = 'public, max-age=2592000' # Varnish cache - 30 days
   end
 
   # routes to fix old links
