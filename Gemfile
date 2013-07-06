@@ -22,3 +22,7 @@ group :development do
   gem 'dotenv-rails'
   gem 'foreman'
 end
+
+group :production do
+  gem 'heroku_rails_deflate'
+end
