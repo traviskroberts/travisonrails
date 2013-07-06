@@ -17,3 +17,6 @@
 # RVM
 .ruby-gemset
 .ruby-version
+
+# Production files
+config/database.yml

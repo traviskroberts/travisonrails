@@ -1,0 +1,17 @@
+development:
+  adapter: postgresql
+  database: travisonrails_development
+  username:
+  password:
+
+test:
+  adapter: postgresql
+  database: travisonrails_test
+  username:
+  password:
+
+production:
+  adapter: postgresql
+  database: travisonrails_production
+  username:
+  password:
