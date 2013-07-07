@@ -19,8 +19,7 @@ group :assets do
 end
 
 group :development do
-  gem 'pry'
-  gem 'quiet_assets'
+  gem 'pry-rails'
   gem 'dotenv-rails'
   gem 'foreman'
 end
