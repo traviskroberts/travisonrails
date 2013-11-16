@@ -3,12 +3,13 @@
   <head>
     <title><%= @page_title ||= 'Travis On Rails' %></title>
 
-    <meta content='text/html; charset=utf-8' http-equiv='Content-Type' />
-    <meta content='Travis Roberts' name='author' />
-    <meta content='A blog about Ruby on Rails, XHTML, CSS, and JavaScript. A great source for ruby tutorials, rails tutorials, xhtml and css hints.' name='description' />
-    <meta content='rails, ruby, merb, haml, ruby gems, code, tutorial, javascript, erb, xhtml, css' name='keywords' />
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta name="author" content="Travis Roberts" />
+    <meta name="description" content="A blog about Ruby on Rails, XHTML, CSS, and JavaScript. A great source for ruby tutorials, rails tutorials, xhtml and css hints." />
+    <meta name="keywords" content="rails, ruby, merb, haml, ruby gems, code, tutorial, javascript, erb, xhtml, css" />
+    <meta name="google-site-verification" content="VE4gMhdPekcxyHBWcjH5ifhq_1pEpwvNsy5XhZkR7Uk" />
 
-    <link href='/favicon.ico' rel='shortcut icon' />
+    <link href="/favicon.ico" rel="shortcut icon" />
 
     <%= auto_discovery_link_tag(:rss, post_rss_path(:rss)) %>
 
@@ -46,6 +47,7 @@
         <p>
           <%= link_to image_tag('listode_logo-trans.png', :alt => 'Listode'), "http://listode.com", :class => "no_hover" %>
           <%= link_to image_tag('nshvll_logo.gif', :alt => "NSHVLL tech community"), "http://nshvll.org", :class => "no_hover" %>
+          <%= link_to image_tag('nme_logo.png', :alt => "A git, javascript, etc. blog."), "http://nomethoderror.com", :class => "no_hover" %>
         </p>
       </div> <!-- .sidebar -->
 
