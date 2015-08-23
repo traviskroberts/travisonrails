@@ -20,4 +20,5 @@
 
 # Production files
 config/database.yml
+config/deploy.rb
 .env
